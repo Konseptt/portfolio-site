@@ -28,7 +28,7 @@
 
   if (projects.length === 0) {
     grid.innerHTML =
-      '<p class="project-empty mono">No projects in <code>projects.js</code> yet.</p>';
+      '<p class="project-empty mono">Nothing here yet — add entries in <code>projects.js</code> when you’re ready.</p>';
   }
 
   function escapeHtml(s) {
