@@ -1,4 +1,3 @@
-/** Portfolio list — each object: title, tagline, tags, year, url, accent, thumb (optional path under assets/thumbs/) */
 window.PORTFOLIO_PROJECTS = [
   {
     title: "Hashpass",

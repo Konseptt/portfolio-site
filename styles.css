@@ -759,15 +759,6 @@ main {
   border-bottom-color: var(--acid);
 }
 
-.contact-note {
-  margin: 1rem 0 0;
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-  max-width: 42ch;
-}
-
 /* Footer */
 .site-footer {
   position: relative;
