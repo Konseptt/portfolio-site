@@ -57,6 +57,12 @@ main,
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
 }
 
+/* Landing hero: no shadow layer over the headline (cleaner stroke text) */
+.hero-panel,
+.hero-panel * {
+  text-shadow: none;
+}
+
 .mono {
   font-family: var(--font-mono);
 }
@@ -386,13 +392,11 @@ main {
 .hero-line-accent {
   color: transparent;
   -webkit-text-stroke: 2px var(--ink);
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 @supports not (-webkit-text-stroke: 1px red) {
   .hero-line-accent {
     color: var(--void);
-    text-shadow: 0 0 0 var(--ink);
   }
 }
 
@@ -402,6 +406,15 @@ main {
   font-size: 0.92rem;
   line-height: 1.65;
   margin: 0;
+}
+
+.hero-whisper {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 40ch;
 }
 
 .hero-panel {
@@ -492,6 +505,15 @@ main {
 
 .work-head {
   margin-bottom: 0.75rem;
+}
+
+.whisper {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 42ch;
 }
 
 .work-label {
@@ -786,6 +808,10 @@ main {
   margin: 0 0 0.85rem;
   letter-spacing: 0.06em;
   color: var(--ink);
+}
+
+.contact-section .whisper {
+  margin-bottom: 1.1rem;
 }
 
 .contact-email {

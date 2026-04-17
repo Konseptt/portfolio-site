@@ -124,18 +124,22 @@
       <span class="corner corner-br"></span>
     </div>
 
-    <a class="skip-link" href="#main">Skip to projects</a>
+    <a class="skip-link" href="#main">Skip to projects — spoilers ahead</a>
 
-    <aside class="rail" aria-label="Page">
+    <aside
+      class="rail"
+      aria-label="Page"
+      title="You’re doing great. Keep scrolling."
+    >
       <span class="rail-mark">◆</span>
       <span class="rail-slug">portfolio</span>
     </aside>
 
     <header class="site-header">
-      <a href="#main" class="brand mono">RS</a>
+      <a href="#main" class="brand mono" title="Yes, it’s really me.">RS</a>
       <nav class="nav mono" aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#contact" class="nav-out">Contact</a>
+        <a href="#work" title="The good part.">Work</a>
+        <a href="#contact" class="nav-out" title="I don’t bite.">Contact</a>
       </nav>
     </header>
 
@@ -143,8 +147,8 @@
       <section class="hero" data-parallax>
         <div class="hero-panel">
           <div class="hero-badges" aria-label="Vibe">
-            <span class="badge badge--pro mono">Shipped &amp; serious</span>
-            <span class="badge badge--fun mono">Chaos tolerated</span>
+            <span class="badge badge--pro mono">Production-grade vibes</span>
+            <span class="badge badge--fun mono">“It works on my machine” certified</span>
           </div>
           <p class="hero-kicker mono reveal">Ranjan Sharma</p>
           <h1 class="hero-title">
@@ -157,6 +161,9 @@
             Web apps, tools, and side projects — mostly things I use or care about.
             Newest first. Professional when it counts; the rest is enthusiasm.
           </p>
+          <p class="hero-whisper mono reveal reveal-delay-4">
+            No roadmap was harmed in the making of this page.
+          </p>
         </div>
       </section>
 
@@ -164,11 +171,11 @@
         <div class="marquee-inner">
           <span class="marquee-chunk"
             >shipping · learning · breaking things gently · coffee as a feature ·
-            shipping · learning ·
+            tab hoarding as a sport · shipping · learning ·
           </span>
           <span class="marquee-chunk"
             >shipping · learning · breaking things gently · coffee as a feature ·
-            shipping · learning ·
+            tab hoarding as a sport · shipping · learning ·
           </span>
         </div>
       </div>
@@ -176,15 +183,23 @@
       <section id="work" class="section work-section">
         <header class="work-head">
           <h2 class="work-label mono">Projects</h2>
+          <p class="whisper">
+            Proof I touch grass sometimes — then come back and ship another thing.
+          </p>
         </header>
         <div id="project-grid" class="project-list"></div>
       </section>
 
       <section id="contact" class="section contact-section">
         <h2 class="contact-heading mono">Say hello</h2>
+        <p class="whisper">
+          I read email. I also forget to reply when I’m “just five minutes” from
+          fixing a bug.
+        </p>
         <a
           class="contact-email magnetic mono"
           href="mailto:hello@ranjansharma.info.np"
+          title="Go on. The send button is brave."
           >hello@ranjansharma.info.np</a
         >
       </section>
@@ -193,10 +208,15 @@
     <footer class="site-footer">
       <div class="site-footer-top mono">
         <span>© Ranjan Sharma</span>
-        <span class="footer-time" id="footer-time"></span>
+        <span
+          class="footer-time"
+          id="footer-time"
+          title="Local time where you are. Probably."
+        ></span>
       </div>
       <p class="site-footer-tagline">
-        Professional enough to ship. Silly enough to enjoy it.
+        Professional enough to ship. Silly enough to enjoy it. If something’s
+        broken, it’s a feature until proven otherwise.
       </p>
     </footer>
 
