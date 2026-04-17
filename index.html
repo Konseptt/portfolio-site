@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index — work</title>
+    <meta
+      name="description"
+      content="Work archive — tools, sites, and side quests."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <div class="video-layer" aria-hidden="true">
+      <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="https://assets.mixkit.co/videos/30574/30574-thumb-720-0.jpg"
+      >
+        <source
+          src="https://assets.mixkit.co/videos/30574/30574-720.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="video-overlay"></div>
+      <div class="video-grain"></div>
+      <div class="video-scanlines" aria-hidden="true"></div>
+    </div>
+
+    <div class="frame-corners" aria-hidden="true">
+      <span class="corner corner-tl"></span>
+      <span class="corner corner-tr"></span>
+      <span class="corner corner-bl"></span>
+      <span class="corner corner-br"></span>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to index</a>
+
+    <aside class="rail" aria-label="Page">
+      <span class="rail-mark">◆</span>
+      <span class="rail-slug">idx / v1</span>
+    </aside>
+
+    <header class="site-header">
+      <a href="#" class="brand mono">YN</a>
+      <nav class="nav mono" aria-label="Primary">
+        <a href="#work">(01) work</a>
+        <a href="#about">(02) colophon</a>
+        <a href="#contact" class="nav-out">(03) mail</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" data-parallax>
+        <div class="hero-top">
+          <span class="hero-tag mono reveal">currently: building</span>
+          <span class="hero-vert mono reveal reveal-delay-1" aria-hidden="true"
+            >scroll</span
+          >
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-line reveal reveal-delay-1">MADE</span>
+          <span class="hero-line hero-line-accent reveal reveal-delay-2"
+            >WITHOUT</span
+          >
+          <span class="hero-line reveal reveal-delay-3">A TEMPLATE</span>
+        </h1>
+        <p class="hero-lede mono reveal reveal-delay-4">
+          Raw list below. No card decks. No “delighted to announce.” Just
+          things that exist because someone stayed up too late.
+        </p>
+      </section>
+
+      <div class="marquee mono" aria-hidden="true">
+        <div class="marquee-inner">
+          <span class="marquee-chunk"
+            >case files · leaks · builds · case files · leaks · builds ·
+          </span>
+          <span class="marquee-chunk"
+            >case files · leaks · builds · case files · leaks · builds ·
+          </span>
+        </div>
+      </div>
+
+      <section id="work" class="section work-section">
+        <header class="work-head">
+          <h2 class="work-label mono">§ index</h2>
+          <p class="work-note mono">newest first · external links open tab</p>
+        </header>
+        <div id="project-grid" class="project-list"></div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <div class="about-block">
+          <h2 class="about-label mono">§ colophon</h2>
+          <p class="about-text">
+            Static HTML/JS. Projects and optional screenshot paths live in
+            <code class="mono">projects.js</code>; image files go in
+            <code class="mono">assets/thumbs/</code>. Swap the
+            <code class="mono">&lt;video&gt;</code> in this file if the loop
+            gets old.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <p class="contact-kicker mono">§ mail</p>
+        <a class="contact-email magnetic mono" href="mailto:hello@example.com"
+          >hello@example.com</a
+        >
+        <p class="contact-note mono">replace · don’t leave the placeholder</p>
+      </section>
+    </main>
+
+    <footer class="site-footer mono">
+      <span>no framework · no guilt</span>
+      <span class="footer-time" id="footer-time"></span>
+    </footer>
+
+    <script src="projects.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
