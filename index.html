@@ -33,10 +33,13 @@
       property="og:description"
       content="Web apps, tools, and side projects — Hashpass, Gap Sheet, SyllabusCal, LyangLang, RetroSudoku, and more. Open the site for the full list."
     />
+    <meta property="og:site_name" content="Ranjan Sharma" />
     <meta
       property="og:image"
       content="https://konseptt.github.io/portfolio-site/assets/thumbs/win95-portfolio-ranjansharma.png"
     />
+    <meta property="og:image:width" content="900" />
+    <meta property="og:image:height" content="897" />
     <meta property="og:image:alt" content="Ranjan Sharma portfolio site preview" />
 
     <!-- Twitter / X -->
@@ -57,10 +60,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://konseptt.github.io/portfolio-site/#website",
+            "url": "https://konseptt.github.io/portfolio-site/",
+            "name": "Ranjan Sharma — Portfolio",
+            "description": "Developer portfolio: web apps, tools, and experiments — Hashpass, Gap Sheet, SyllabusCal, LyangLang, RetroSudoku, and more. Based in Nepal.",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://konseptt.github.io/portfolio-site/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://konseptt.github.io/portfolio-site/#person",
+            "name": "Ranjan Sharma",
+            "url": "https://konseptt.github.io/portfolio-site/",
+            "email": "mailto:hello@ranjansharma.info.np",
+            "jobTitle": "Developer",
+            "sameAs": ["https://github.com/Konseptt"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="cursor-dot" aria-hidden="true"></div>
@@ -109,26 +141,34 @@
 
     <main id="main">
       <section class="hero" data-parallax>
-        <p class="hero-kicker mono reveal">Ranjan Sharma</p>
-        <h1 class="hero-title">
-          <span class="hero-line reveal reveal-delay-1">Things I’ve shipped</span>
-          <span class="hero-line hero-line-accent reveal reveal-delay-2"
-            >and still mess with</span
-          >
-        </h1>
-        <p class="hero-lede reveal reveal-delay-3">
-          Web apps, tools, and side projects — mostly things I use or care about.
-          Newest first.
-        </p>
+        <div class="hero-panel">
+          <div class="hero-badges" aria-label="Vibe">
+            <span class="badge badge--pro mono">Shipped &amp; serious</span>
+            <span class="badge badge--fun mono">Chaos tolerated</span>
+          </div>
+          <p class="hero-kicker mono reveal">Ranjan Sharma</p>
+          <h1 class="hero-title">
+            <span class="hero-line reveal reveal-delay-1">Things I’ve shipped</span>
+            <span class="hero-line hero-line-accent reveal reveal-delay-2"
+              >and still mess with</span
+            >
+          </h1>
+          <p class="hero-lede reveal reveal-delay-3">
+            Web apps, tools, and side projects — mostly things I use or care about.
+            Newest first. Professional when it counts; the rest is enthusiasm.
+          </p>
+        </div>
       </section>
 
       <div class="marquee mono" aria-hidden="true">
         <div class="marquee-inner">
           <span class="marquee-chunk"
-            >shipping · learning · breaking things gently · shipping · learning ·
+            >shipping · learning · breaking things gently · coffee as a feature ·
+            shipping · learning ·
           </span>
           <span class="marquee-chunk"
-            >shipping · learning · breaking things gently · shipping · learning ·
+            >shipping · learning · breaking things gently · coffee as a feature ·
+            shipping · learning ·
           </span>
         </div>
       </div>
@@ -150,9 +190,14 @@
       </section>
     </main>
 
-    <footer class="site-footer mono">
-      <span>© Ranjan Sharma</span>
-      <span class="footer-time" id="footer-time"></span>
+    <footer class="site-footer">
+      <div class="site-footer-top mono">
+        <span>© Ranjan Sharma</span>
+        <span class="footer-time" id="footer-time"></span>
+      </div>
+      <p class="site-footer-tagline">
+        Professional enough to ship. Silly enough to enjoy it.
+      </p>
     </footer>
 
     <script src="projects.js"></script>
