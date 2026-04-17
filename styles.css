@@ -444,12 +444,7 @@ main {
 }
 
 .work-head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-  align-items: baseline;
+  margin-bottom: 0.75rem;
 }
 
 .work-label {
@@ -457,13 +452,6 @@ main {
   margin: 0;
   letter-spacing: 0.15em;
   color: var(--burn);
-}
-
-.work-note {
-  margin: 0;
-  font-size: 0.7rem;
-  color: var(--muted);
-  letter-spacing: 0.05em;
 }
 
 .project-list {

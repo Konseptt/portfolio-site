@@ -1,12 +1,4 @@
-/**
- * Portfolio entries — edit freely.
- *
- * Fields:
- *   title, tagline, tags[], year
- *   url — optional; omit for a non-clickable row
- *   accent — hex for hover wash + glyph
- *   thumb — optional relative path to a screenshot/GIF (e.g. "assets/thumbs/my-site.png")
- */
+/** Portfolio list — each object: title, tagline, tags, year, url, accent, thumb (optional path under assets/thumbs/) */
 window.PORTFOLIO_PROJECTS = [
   {
     title: "Hashpass",
