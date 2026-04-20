@@ -1,5 +1,14 @@
 window.PORTFOLIO_PROJECTS = [
   {
+    title: "PrismClause",
+    tagline:
+      "ToS red-flag scanner — drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
+    tags: ["LegalTech", "Policy", "Web"],
+    year: "2026",
+    url: "https://tos.ranjansharma.info.np/",
+    accent: "#ff7849",
+  },
+  {
     title: "Hashpass",
     tagline:
       'Password “calculator” — not a vault. Argon2 + site name → the same strong password every time, nothing stored.',
