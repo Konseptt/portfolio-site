@@ -105,10 +105,11 @@
         muted
         loop
         playsinline
+        preload="none"
         poster="https://assets.mixkit.co/videos/30574/30574-thumb-720-0.jpg"
       >
         <source
-          src="https://assets.mixkit.co/videos/30574/30574-720.mp4"
+          data-src="https://assets.mixkit.co/videos/30574/30574-720.mp4"
           type="video/mp4"
         />
       </video>
@@ -124,80 +125,80 @@
       <span class="corner corner-br"></span>
     </div>
 
-    <a class="skip-link" href="#main">Skip to projects — spoilers ahead</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <aside
-      class="rail"
-      aria-label="Page"
-      title="You’re doing great. Keep scrolling."
-    >
-      <span class="rail-mark">◆</span>
-      <span class="rail-slug">portfolio</span>
+    <aside class="rail" aria-label="Page">
+      <span class="rail-mark" aria-hidden="true">↳</span>
+      <span class="rail-slug">konseptt</span>
     </aside>
 
     <header class="site-header">
-      <a href="#main" class="brand mono" title="Yes, it’s really me.">RS</a>
+      <a href="#main" class="brand mono" title="Back to top">RS</a>
       <nav class="nav mono" aria-label="Primary">
-        <a href="#work" title="The good part.">Work</a>
-        <a href="#contact" class="nav-out" title="I don’t bite.">Contact</a>
+        <a href="#work">Work</a>
+        <a href="#contact" class="nav-out">Contact</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" data-parallax>
-        <div class="hero-badges" aria-label="Vibe">
-          <span class="badge badge--pro mono">Production-grade vibes</span>
-          <span class="badge badge--fun mono">“It works on my machine” certified</span>
+        <div class="hero-badges" aria-label="Context">
+          <span class="badge badge--pro mono badge--tilt-l">Kathmandu · Nepal</span>
+          <span class="badge badge--fun mono badge--tilt-r">.np &amp; GitHub</span>
         </div>
         <p class="hero-kicker mono reveal">Ranjan Sharma</p>
         <h1 class="hero-title">
-          <span class="hero-line reveal reveal-delay-1">Things I’ve shipped</span>
+          <span class="hero-line reveal reveal-delay-1">Stuff I’ve built</span>
           <span class="hero-line hero-line-accent reveal reveal-delay-2"
-            >and still mess with</span
+            >and still poke at</span
           >
         </h1>
         <p class="hero-lede reveal reveal-delay-3">
-          Web apps, tools, and side projects — mostly things I use or care about.
-          Newest first. Professional when it counts; the rest is enthusiasm.
+          Password tooling, résumé helpers, syllabus-to-calendar parsers, a
+          Nepali-syntax language, sudoku, a fake Windows 95 desktop — things I
+          wanted to exist. Listed newest first; quality varies on purpose.
         </p>
-        <p class="hero-whisper mono reveal reveal-delay-4">
-          No roadmap was harmed in the making of this page.
+        <p class="hero-whisper reveal reveal-delay-4">
+          <span class="hero-whisper-mono mono">No template.</span>
+          I typed this markup myself. If a link dies or a typo annoys you, I’d
+          rather hear it than wonder.
         </p>
       </section>
 
       <div class="marquee mono" aria-hidden="true">
         <div class="marquee-inner">
           <span class="marquee-chunk"
-            >shipping · learning · breaking things gently · coffee as a feature ·
-            tab hoarding as a sport · shipping · learning ·
+            >Hashpass · LyangLang · SyllabusCal · Gap Sheet · RetroSudoku · NPT
+            · Argon2 · Hashpass · LyangLang · SyllabusCal ·
           </span>
           <span class="marquee-chunk"
-            >shipping · learning · breaking things gently · coffee as a feature ·
-            tab hoarding as a sport · shipping · learning ·
+            >Hashpass · LyangLang · SyllabusCal · Gap Sheet · RetroSudoku · NPT
+            · Argon2 · Hashpass · LyangLang · SyllabusCal ·
           </span>
         </div>
       </div>
 
       <section id="work" class="section work-section">
         <header class="work-head">
-          <h2 class="work-label mono">Projects</h2>
+          <h2 class="work-label mono">Selected work</h2>
           <p class="whisper">
-            Proof I touch grass sometimes — then come back and ship another thing.
+            Same person behind the Win95 portfolio and the syllabus parser.
+            External links open in a new tab.
           </p>
         </header>
         <div id="project-grid" class="project-list"></div>
       </section>
 
       <section id="contact" class="section contact-section">
-        <h2 class="contact-heading mono">Say hello</h2>
+        <h2 class="contact-heading mono">Email</h2>
         <p class="whisper">
-          I read email. I also forget to reply when I’m “just five minutes” from
-          fixing a bug.
+          Work, weird bugs, or a hello — I read everything. I’m on Nepal time
+          (NPT, UTC+5:45); replies might take a day or two when I’m deep in a
+          build.
         </p>
         <a
           class="contact-email magnetic mono"
           href="mailto:hello@ranjansharma.info.np"
-          title="Go on. The send button is brave."
           >hello@ranjansharma.info.np</a
         >
       </section>
@@ -206,15 +207,11 @@
     <footer class="site-footer">
       <div class="site-footer-top mono">
         <span>© Ranjan Sharma</span>
-        <span
-          class="footer-time"
-          id="footer-time"
-          title="Local time where you are. Probably."
-        ></span>
+        <span class="footer-time" id="footer-time"></span>
       </div>
       <p class="site-footer-tagline">
-        Professional enough to ship. Silly enough to enjoy it. If something’s
-        broken, it’s a feature until proven otherwise.
+        Plain HTML, CSS, and a small JS file — shipped from the same GitHub
+        habit as everything else here.
       </p>
     </footer>
 

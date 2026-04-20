@@ -4,23 +4,43 @@
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const bgVideo = document.querySelector(".bg-video");
-  if (bgVideo && prefersReduced) {
-    bgVideo.pause();
-    bgVideo.removeAttribute("autoplay");
-  }
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveData = Boolean(connection && connection.saveData);
 
-  if (bgVideo && !prefersReduced) {
-    document.addEventListener(
-      "visibilitychange",
-      () => {
-        if (document.hidden) {
-          bgVideo.pause();
-        } else {
-          bgVideo.play().catch(() => {});
+  if (bgVideo) {
+    const bgSource = bgVideo.querySelector("source[data-src]");
+    const shouldLoadVideo = !prefersReduced && !saveData;
+
+    if (!shouldLoadVideo) {
+      bgVideo.pause();
+      bgVideo.removeAttribute("autoplay");
+    } else {
+      const activateVideo = () => {
+        if (bgSource && bgSource.dataset.src && !bgSource.src) {
+          bgSource.src = bgSource.dataset.src;
+          bgVideo.load();
         }
-      },
-      { passive: true }
-    );
+        bgVideo.play().catch(() => {});
+      };
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(activateVideo, { timeout: 1500 });
+      } else {
+        setTimeout(activateVideo, 300);
+      }
+
+      document.addEventListener(
+        "visibilitychange",
+        () => {
+          if (document.hidden) {
+            bgVideo.pause();
+          } else {
+            bgVideo.play().catch(() => {});
+          }
+        },
+        { passive: true }
+      );
+    }
   }
 
   const grid = document.getElementById("project-grid");
@@ -28,7 +48,7 @@
 
   if (projects.length === 0) {
     grid.innerHTML =
-      '<p class="project-empty mono">Nothing here yet — <code>projects.js</code> is playing hard to get.</p>';
+      '<p class="project-empty mono">No projects listed — add entries in <code>projects.js</code>.</p>';
   }
 
   function escapeHtml(s) {
@@ -66,8 +86,12 @@
       .map((t) => `<span class="tag mono">${escapeHtml(t)}</span>`)
       .join("");
 
+    const thumbAttrs =
+      i === 0
+        ? 'loading="eager" fetchpriority="high"'
+        : 'loading="lazy"';
     const thumbBlock = thumb
-      ? `<div class="project-thumb"><img src="${escapeHtml(thumb)}" alt="" loading="lazy" decoding="async" width="400" height="225" /></div>`
+      ? `<div class="project-thumb"><img src="${escapeHtml(thumb)}" alt="" ${thumbAttrs} decoding="async" width="400" height="225" /></div>`
       : "";
 
     el.innerHTML = `
