@@ -7,6 +7,7 @@ window.PORTFOLIO_PROJECTS = [
     year: "2026",
     url: "https://tos.ranjansharma.info.np/",
     accent: "#ff7849",
+    thumb: "assets/thumbs/prismclause-ranjansharma.gif",
   },
   {
     title: "Hashpass",
