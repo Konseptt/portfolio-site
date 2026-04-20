@@ -132,7 +132,7 @@ main,
   mix-blend-mode: overlay;
 }
 
-/* Subtle CRT-ish lines — CSS only, cheap */
+/* Subtle CRT-ish lines - CSS only, cheap */
 .video-scanlines {
   position: absolute;
   inset: 0;
@@ -209,16 +209,19 @@ main,
 
 .rail-mark {
   color: var(--burn);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0.85;
 }
 
 .rail-slug {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: lowercase;
   color: var(--muted);
+  font-style: italic;
 }
 
 @media (max-width: 640px) {
@@ -373,6 +376,9 @@ main {
   letter-spacing: 0.08em;
   color: var(--muted);
   margin: 0 0 1rem;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dashed rgba(247, 244, 239, 0.2);
 }
 
 .hero-title {
@@ -410,11 +416,17 @@ main {
 
 .hero-whisper {
   margin: 1rem 0 0;
-  font-size: 0.78rem;
-  line-height: 1.45;
-  color: var(--muted);
-  font-style: italic;
-  max-width: 40ch;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--dim);
+  font-style: normal;
+  max-width: 48ch;
+}
+
+.hero-whisper-mono {
+  color: var(--acid);
+  font-weight: 500;
+  margin-right: 0.4em;
 }
 
 .hero-badges {
@@ -445,6 +457,21 @@ main {
   color: var(--burn);
   background: rgba(255, 90, 31, 0.1);
   border-color: rgba(255, 90, 31, 0.4);
+}
+
+/* Slight “pinned note” tilt - breaks the perfect grid feel */
+.badge--tilt-l {
+  transform: rotate(-0.7deg);
+}
+.badge--tilt-r {
+  transform: rotate(0.55deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge--tilt-l,
+  .badge--tilt-r {
+    transform: none;
+  }
 }
 
 /* Marquee */

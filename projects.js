@@ -2,7 +2,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "PrismClause",
     tagline:
-      "ToS red-flag scanner — drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
+      "ToS red-flag scanner - drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
     tags: ["LegalTech", "Policy", "Web"],
     year: "2026",
     url: "https://tos.ranjansharma.info.np/",
@@ -12,7 +12,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Hashpass",
     tagline:
-      'Password “calculator” — not a vault. Argon2 + site name → the same strong password every time, nothing stored.',
+      'Password “calculator” - not a vault. Argon2 + site name → the same strong password every time, nothing stored.',
     tags: ["Argon2", "Crypto", "Web"],
     year: "2026",
     url: "https://hashpass.ranjansharma.info.np/",
@@ -22,7 +22,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Gap Sheet",
     tagline:
-      "Job posting vs. your résumé — paste both (PDF ok) and get a straight list of gaps and wording fixes. No pep talk.",
+      "Job posting vs. your résumé - paste both (PDF ok) and get a straight list of gaps and wording fixes. No pep talk.",
     tags: ["Career", "Resume", "Web"],
     year: "2026",
     url: "https://resume.ranjansharma.info.np/",
@@ -32,7 +32,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "SyllabusCal",
     tagline:
-      "Upload a syllabus PDF — AI extracts due dates, exams, and readings — export a .ics for Google Calendar. Processing stays in-memory.",
+      "Upload a syllabus PDF - AI extracts due dates, exams, and readings - export a .ics for Google Calendar. Processing stays in-memory.",
     tags: ["AI", "PDF", "Calendar"],
     year: "2026",
     url: "https://syllabuscal.ranjansharma.info.np/",
@@ -42,7 +42,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "LyangLang",
     tagline:
-      "Programming language with natural Nepali syntax — learn core ideas in a familiar language. Rust-powered lyangpiler, installers, releases.",
+      "Programming language with natural-language syntax - learn core ideas in a familiar language. Rust-powered lyangpiler, installers, releases.",
     tags: ["Rust", "Compiler", "OSS"],
     year: "2026",
     url: "https://github.com/Konseptt/LyangLang",
@@ -52,7 +52,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "QR Code Generator",
     tagline:
-      "QRs for URL, text, Wi-Fi, contacts, or bulk — pick colors, optional logo, download. Works in the browser.",
+      "QRs for URL, text, Wi-Fi, contacts, or bulk - pick colors, optional logo, download. Works in the browser.",
     tags: ["QR", "Web", "Tools"],
     year: "2026",
     url: "https://qr.ranjansharma.info.np/",
@@ -62,7 +62,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "RetroSudoku",
     tagline:
-      "Sudoku web app — DLX solver, human-style hints, retro themes (CRT, arcade, terminal…). React, TypeScript, Vite, offline PWA.",
+      "Sudoku web app - DLX solver, human-style hints, retro themes (CRT, arcade, terminal…). React, TypeScript, Vite, offline PWA.",
     tags: ["React", "TypeScript", "Games", "PWA"],
     year: "2026",
     url: "https://github.com/Konseptt/retrosudoku",
@@ -72,7 +72,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Rust AI Car Driving",
     tagline:
-      "Rust simulation of an AI-controlled car — pathfinding, obstacle avoidance, and a simple GUI. 100% Rust.",
+      "Rust simulation of an AI-controlled car - pathfinding, obstacle avoidance, and a simple GUI. 100% Rust.",
     tags: ["Rust", "Simulation", "AI"],
     year: "2026",
     url: "https://github.com/Konseptt/Rust-Autonomous-Vehicle-Simulation",
@@ -82,7 +82,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Windows 95 Portfolio",
     tagline:
-      "Personal site as a fake Windows 95 desktop — icons, Start menu, taskbar, teal wallpaper. Nostalgia with real links.",
+      "Personal site as a fake Windows 95 desktop - icons, Start menu, taskbar, teal wallpaper. Nostalgia with real links.",
     tags: ["Web", "Retro", "Portfolio"],
     year: "2026",
     url: "https://95.ranjansharma.info.np/",

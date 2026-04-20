@@ -48,7 +48,7 @@
 
   if (projects.length === 0) {
     grid.innerHTML =
-      '<p class="project-empty mono">No projects listed — add entries in <code>projects.js</code>.</p>';
+      '<p class="project-empty mono">No projects listed - add entries in <code>projects.js</code>.</p>';
   }
 
   function escapeHtml(s) {
@@ -101,7 +101,7 @@
         <h3 class="project-title">${escapeHtml(p.title)}</h3>
         <p class="project-tagline">${escapeHtml(p.tagline)}</p>
       </div>
-      <span class="project-year mono">${escapeHtml(p.year || "—")}</span>
+      <span class="project-year mono">${escapeHtml(p.year || "-")}</span>
       <div class="project-tags">${tags}</div>
       ${href ? '<span class="row-glyph" aria-hidden="true">↗</span>' : ""}
     `;
