@@ -38,6 +38,9 @@ window.PORTFOLIO_PROJECTS = [
     url: "https://interview.ranjansharma.info.np/",
     accent: "#c084fc",
     thumb: "assets/thumbs/interview-forecaster-ranjansharma.png",
+    thumbAspect: "450/236",
+    thumbImgWidth: 450,
+    thumbImgHeight: 236,
   },
   {
     title: "SyllabusCal",

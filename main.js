@@ -61,6 +61,15 @@
     return String(n).padStart(2, "0");
   }
 
+  /** Safe `aspect-ratio: w/h` inline style when thumb frame should match artwork (OG, etc.). */
+  function thumbAspectStyle(p) {
+    const raw = p.thumbAspect;
+    if (typeof raw !== "string") return "";
+    const compact = raw.replace(/\s+/g, "");
+    if (!/^\d+\/\d+$/.test(compact)) return "";
+    return ` style="aspect-ratio:${compact}"`;
+  }
+
   projects.forEach((p, i) => {
     const href = p.url || "";
     const thumb = (p.thumb || "").trim();
@@ -90,8 +99,10 @@
       i === 0
         ? 'loading="eager" fetchpriority="high"'
         : 'loading="lazy"';
+    const iw = Number.isFinite(p.thumbImgWidth) ? p.thumbImgWidth : 400;
+    const ih = Number.isFinite(p.thumbImgHeight) ? p.thumbImgHeight : 225;
     const thumbBlock = thumb
-      ? `<div class="project-thumb"><img src="${escapeHtml(thumb)}" alt="" ${thumbAttrs} decoding="async" width="400" height="225" /></div>`
+      ? `<div class="project-thumb"${thumbAspectStyle(p)}><img src="${escapeHtml(thumb)}" alt="" ${thumbAttrs} decoding="async" width="${iw}" height="${ih}" /></div>`
       : "";
 
     el.innerHTML = `
