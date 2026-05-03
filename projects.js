@@ -30,6 +30,16 @@ window.PORTFOLIO_PROJECTS = [
     thumb: "assets/thumbs/gap-sheet-resume.png",
   },
   {
+    title: "Interview Question Forecaster",
+    tagline:
+      "Retro-styled Next.js studio - paste a job description, get likely interview questions plus answer frameworks, red flags, copy/export; standard or streaming.",
+    tags: ["AI", "Next.js", "Career", "Web"],
+    year: "2026",
+    url: "https://interview.ranjansharma.info.np/",
+    accent: "#c084fc",
+    thumb: "assets/thumbs/interview-forecaster-ranjansharma.png",
+  },
+  {
     title: "SyllabusCal",
     tagline:
       "Upload a syllabus PDF - AI extracts due dates, exams, and readings - export a .ics for Google Calendar. Processing stays in-memory.",
