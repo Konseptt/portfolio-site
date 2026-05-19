@@ -1,5 +1,15 @@
 window.PORTFOLIO_PROJECTS = [
   {
+    title: "Flex-O-Matic 5000",
+    tagline:
+      "Paste any project and instantly forge three LinkedIn-ready posts: technical breakdown, story mode, and lessons learned.",
+    tags: ["AI", "LinkedIn", "Writing", "Web"],
+    year: "2026",
+    url: "https://flex.ranjansharma.name.np/",
+    accent: "#f97316",
+    thumb: "assets/thumbs/flex.png",
+  },
+  {
     title: "PrismClause",
     tagline:
       "ToS red-flag scanner - drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
