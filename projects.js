@@ -10,6 +10,16 @@ window.PORTFOLIO_PROJECTS = [
     thumb: "assets/thumbs/flex.png",
   },
   {
+    title: "Plant Field Journal",
+    tagline:
+      "Photograph any plant to identify the species, then keep practical care notes for watering, light, and growth in one place.",
+    tags: ["AI", "Plants", "Care", "Web"],
+    year: "2026",
+    url: "https://plant.ranjansharma.info.np/",
+    accent: "#84cc16",
+    thumb: "assets/thumbs/plant.jpg",
+  },
+  {
     title: "PrismClause",
     tagline:
       "ToS red-flag scanner - drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
