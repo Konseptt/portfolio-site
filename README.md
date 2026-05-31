@@ -6,7 +6,7 @@ It is a plain HTML, CSS, and JavaScript project that lists my work, keeps perfor
 
 ## Live website
 
-- Production website: https://syllabuscal.ranjansharma.info.np
+- Website: https://syllabuscal.ranjansharma.info.np
 
 ## Repository details to set on GitHub
 
