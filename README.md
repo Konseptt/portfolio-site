@@ -16,6 +16,8 @@ Use these values in **Settings -> General**:
 - Website (set this in repository settings): https://syllabuscal.ranjansharma.info.np
 - Topics: `portfolio html css javascript github-pages front-end web-performance`
 
+Note: the website setting value above is intentionally different from the live portfolio URL because it follows the requested repository detail value.
+
 ## What is in this repo
 
 - `index.html` - page structure, SEO meta tags, JSON-LD, and sections.
