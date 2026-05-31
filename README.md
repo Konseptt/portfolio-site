@@ -6,7 +6,7 @@ It is a plain HTML, CSS, and JavaScript project that lists my work, keeps perfor
 
 ## Live website
 
-- Website: https://syllabuscal.ranjansharma.info.np
+- Website: https://konseptt.github.io/portfolio-site/
 
 ## Repository details to set on GitHub
 
