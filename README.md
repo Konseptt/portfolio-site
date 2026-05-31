@@ -13,7 +13,7 @@ It is a plain HTML, CSS, and JavaScript project that lists my work, keeps perfor
 Use these values in **Settings -> General**:
 
 - Description: Personal developer portfolio with selected projects, custom UI interactions, and lightweight front-end performance optimizations.
-- Website (requested value): https://syllabuscal.ranjansharma.info.np
+- Website (set this in repository settings): https://syllabuscal.ranjansharma.info.np
 - Topics: `portfolio html css javascript github-pages front-end web-performance`
 
 ## What is in this repo
