@@ -18,11 +18,11 @@ Use these values in **Settings -> General**:
 
 ## What is in this repo
 
-- `/tmp/workspace/Konseptt/portfolio-site/index.html` - page structure, SEO meta tags, JSON-LD, and sections.
-- `/tmp/workspace/Konseptt/portfolio-site/styles.css` - visual design, layout, animation states, and responsive behavior.
-- `/tmp/workspace/Konseptt/portfolio-site/projects.js` - project catalog data that powers the work grid.
-- `/tmp/workspace/Konseptt/portfolio-site/main.js` - runtime behavior for rendering, motion effects, and utility interactions.
-- `/tmp/workspace/Konseptt/portfolio-site/assets/` - thumbnails, favicon, and media assets.
+- `index.html` - page structure, SEO meta tags, JSON-LD, and sections.
+- `styles.css` - visual design, layout, animation states, and responsive behavior.
+- `projects.js` - project catalog data that powers the work grid.
+- `main.js` - runtime behavior for rendering, motion effects, and utility interactions.
+- `assets/` - thumbnails, favicon, and media assets.
 
 ## Site flowchart
 
