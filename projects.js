@@ -20,6 +20,16 @@ window.PORTFOLIO_PROJECTS = [
     thumb: "assets/thumbs/plant.jpg",
   },
   {
+    title: "GitHub Profile Roaster",
+    tagline:
+      "Enter a GitHub username - we read public repos, commits, languages, and READMEs, then roast what hurts.",
+    tags: ["AI", "GitHub", "Roast", "Web"],
+    year: "2026",
+    url: "https://github.ranjansharma.info.np/",
+    accent: "#ef4444",
+    thumb: "assets/thumbs/github-roaster.jpg",
+  },
+  {
     title: "PrismClause",
     tagline:
       "ToS red-flag scanner - drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
