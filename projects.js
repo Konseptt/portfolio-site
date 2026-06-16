@@ -30,6 +30,16 @@ window.PORTFOLIO_PROJECTS = [
     thumb: "assets/thumbs/github-roaster.jpg",
   },
   {
+    title: "The Faculty Ledger",
+    tagline:
+      "Look up professors by name or school - pull Rate My Professors reviews, difficulty scores, course history, and side-by-side comparisons before you register.",
+    tags: ["Education", "Reviews", "AI", "Web"],
+    year: "2026",
+    url: "https://faculty.ranjansharma.info.np/",
+    accent: "#b45309",
+    thumb: "assets/thumbs/faculty.jpg",
+  },
+  {
     title: "PrismClause",
     tagline:
       "ToS red-flag scanner - drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
