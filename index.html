@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-base">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,26 +9,17 @@
       content="Ranjan Sharma - developer building web apps, tools, and experiments. Portfolio of shipped projects: security tools, AI helpers, games, and more."
     />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#070708" />
+    <meta name="theme-color" content="#08090c" />
 
     <title>Ranjan Sharma - Developer &amp; portfolio</title>
 
-    <link
-      rel="canonical"
-      href="https://konseptt.github.io/portfolio-site/"
-    />
+    <link rel="canonical" href="https://konseptt.github.io/portfolio-site/" />
 
     <!-- Open Graph (Facebook, LinkedIn, iMessage, Slack, etc.) -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://konseptt.github.io/portfolio-site/"
-    />
+    <meta property="og:url" content="https://konseptt.github.io/portfolio-site/" />
     <meta property="og:locale" content="en_US" />
-    <meta
-      property="og:title"
-      content="Ranjan Sharma - Developer & portfolio"
-    />
+    <meta property="og:title" content="Ranjan Sharma - Developer & portfolio" />
     <meta
       property="og:description"
       content="Web apps, tools, and side projects - Hashpass, Gap Sheet, Interview Question Forecaster, SyllabusCal, LyangLang, RetroSudoku, and more. Open the site for the full list."
@@ -44,10 +35,7 @@
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Ranjan Sharma - Developer & portfolio"
-    />
+    <meta name="twitter:title" content="Ranjan Sharma - Developer & portfolio" />
     <meta
       name="twitter:description"
       content="Web apps, tools, and side projects - Hashpass, Gap Sheet, Interview Question Forecaster, SyllabusCal, LyangLang, RetroSudoku, and more."
@@ -60,12 +48,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- three.js loaded as an ES module from CDN (no build step) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+      }
+    </script>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -98,24 +96,11 @@
     <div class="cursor-dot" aria-hidden="true"></div>
     <div class="cursor-ring" aria-hidden="true"></div>
 
-    <div class="video-layer" aria-hidden="true">
-      <video
-        class="bg-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="none"
-        poster="https://assets.mixkit.co/videos/30574/30574-thumb-720-0.jpg"
-      >
-        <source
-          data-src="https://assets.mixkit.co/videos/30574/30574-720.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <div class="video-overlay"></div>
-      <div class="video-grain"></div>
-      <div class="video-scanlines" aria-hidden="true"></div>
+    <!-- three.js dev-junk canvas (with CSS fallback behind it) -->
+    <div class="scene-layer" aria-hidden="true">
+      <div class="scene-fallback"></div>
+      <canvas id="scene-canvas"></canvas>
+      <div class="scene-grain"></div>
     </div>
 
     <div class="frame-corners" aria-hidden="true">
@@ -136,32 +121,53 @@
       <a href="#main" class="brand mono" title="Back to top">RS</a>
       <nav class="nav mono" aria-label="Primary">
         <a href="#work">Work</a>
-        <a href="#contact" class="nav-out">Contact</a>
+        <a href="#stats">Receipts</a>
+        <a href="#contact" class="nav-out">Yell at me</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" data-parallax>
         <div class="hero-badges" aria-label="Context">
-          <span class="badge badge--pro mono badge--tilt-l">Built with intent, shipped worldwide</span>
-          <span class="badge badge--fun mono badge--tilt-r">Coffee, commits, and questionable fixes</span>
+          <span class="badge badge--pro mono badge--tilt-l"
+            >Shipped worldwide, debugged at 2am</span
+          >
+          <span class="badge badge--fun mono badge--tilt-r"
+            >Powered by coffee &amp; mild panic</span
+          >
         </div>
-        <p class="hero-kicker mono reveal">Ranjan Sharma</p>
+        <p class="hero-kicker mono reveal">
+          Ranjan Sharma <span class="hero-kicker-wink" data-rotate-tagline>// developer-ish</span>
+        </p>
         <h1 class="hero-title">
-          <span class="hero-line reveal reveal-delay-1">Stuff I’ve built</span>
+          <span class="hero-line reveal reveal-delay-1">Stuff I built</span>
           <span class="hero-line hero-line-accent reveal reveal-delay-2"
-            >and still poke at</span
+            >and can't stop poking</span
           >
         </h1>
         <p class="hero-lede reveal reveal-delay-3">
-          Password tools, résumé analyzers, interview-question forecasting, syllabus-to-calendar parsers, a
-          natural-language syntax experiment, sudoku, and other things I made because
-          saying “someone should build this” felt like a personal attack.
+          Password tools, résumé analyzers, interview-question forecasting,
+          syllabus-to-calendar parsers, a natural-language syntax experiment,
+          sudoku, and other things I made because saying
+          <em>“someone should build this”</em> felt like a personal attack.
         </p>
         <p class="hero-whisper reveal reveal-delay-4">
           <span class="hero-whisper-mono mono">No template.</span>
-          Hand-written markup, hand-rolled bugs, and occasional existential
-          debates with CSS grid. If something breaks, blame cache first.
+          Hand-written markup, hand-rolled bugs, and an ongoing hostage
+          negotiation with CSS grid. If something breaks, blame cache first.
+        </p>
+        <div class="hero-cta reveal reveal-delay-5">
+          <a href="#work" class="btn btn-primary magnetic mono">See the goods ↓</a>
+          <a
+            href="https://github.com/Konseptt"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost magnetic mono"
+            >GitHub (proof) ↗</a
+          >
+        </div>
+        <p class="hero-hint mono" aria-hidden="true">
+          psst — shove your cursor at the floating junk
         </p>
       </section>
 
@@ -180,14 +186,36 @@
 
       <section id="work" class="section work-section">
         <header class="work-head">
-          <h2 class="work-label mono">Selected work</h2>
+          <h2 class="work-label mono"><span class="work-label-bracket">{</span> Selected work <span class="work-label-bracket">}</span></h2>
           <p class="whisper">
             Same human behind the fake Win95 desktop and the PDF date parser.
             External links open in a new tab so your current debugging tab can
             stay emotionally safe.
           </p>
         </header>
-        <div id="project-grid" class="project-list"></div>
+        <div id="project-grid" class="project-grid-cards"></div>
+      </section>
+
+      <section id="stats" class="section stats-section">
+        <h2 class="stats-label mono">// receipts</h2>
+        <div class="stats-strip">
+          <div class="stat reveal-card">
+            <span class="stat-num" data-count-to="14">0</span>
+            <span class="stat-label mono">things shipped</span>
+          </div>
+          <div class="stat reveal-card">
+            <span class="stat-num" data-count-to="0">0</span>
+            <span class="stat-label mono">frameworks harmed</span>
+          </div>
+          <div class="stat reveal-card">
+            <span class="stat-num stat-num--inf">∞</span>
+            <span class="stat-label mono">cups of coffee</span>
+          </div>
+          <div class="stat reveal-card">
+            <span class="stat-num" data-count-to="1">0</span>
+            <span class="stat-label mono">semicolons shaken</span>
+          </div>
+        </div>
       </section>
 
       <section id="contact" class="section contact-section">
@@ -210,12 +238,14 @@
         <span class="footer-time" id="footer-time"></span>
       </div>
       <p class="site-footer-tagline">
-        Plain HTML, CSS, and one suspiciously confident JS file. No framework
-        was harmed, though one semicolon was emotionally shaken.
+        Plain HTML, CSS, one suspiciously confident JS file, and a tiny three.js
+        scene of floating dev junk. No framework was harmed, though one
+        semicolon was emotionally shaken.
       </p>
     </footer>
 
     <script src="projects.js"></script>
     <script src="main.js"></script>
+    <script type="module" src="three-scene.js"></script>
   </body>
 </html>
