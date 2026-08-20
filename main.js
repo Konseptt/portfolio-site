@@ -3,6 +3,49 @@
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const bgVideo = document.querySelector(".bg-video");
+  const connection =
+    navigator.connection ||
+    navigator.mozConnection ||
+    navigator.webkitConnection;
+  const saveData = Boolean(connection && connection.saveData);
+
+  if (bgVideo) {
+    const bgSource = bgVideo.querySelector("source[data-src]");
+    const shouldLoadVideo = !prefersReduced && !saveData;
+
+    if (!shouldLoadVideo) {
+      bgVideo.pause();
+      bgVideo.removeAttribute("autoplay");
+    } else {
+      const activateVideo = () => {
+        if (bgSource && bgSource.dataset.src && !bgSource.src) {
+          bgSource.src = bgSource.dataset.src;
+          bgVideo.load();
+        }
+        bgVideo.play().catch(() => {});
+      };
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(activateVideo, { timeout: 1500 });
+      } else {
+        setTimeout(activateVideo, 300);
+      }
+
+      document.addEventListener(
+        "visibilitychange",
+        () => {
+          if (document.hidden) {
+            bgVideo.pause();
+          } else {
+            bgVideo.play().catch(() => {});
+          }
+        },
+        { passive: true }
+      );
+    }
+  }
+
   /* Classic human jokes (old ProgrammerHumor / hallway staples) */
   const QUIPS = [
     "There are 10 types of people: those who understand binary, and those who don't.",

@@ -116,9 +116,23 @@
       <span class="cursor-chip mono"></span>
     </div>
 
-    <div class="atmosphere" aria-hidden="true">
-      <div class="atmosphere-wash"></div>
-      <div class="atmosphere-grain"></div>
+    <div class="video-layer" aria-hidden="true">
+      <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="https://assets.mixkit.co/videos/30574/30574-thumb-720-0.jpg"
+      >
+        <source
+          data-src="https://assets.mixkit.co/videos/30574/30574-720.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="video-overlay"></div>
+      <div class="video-grain"></div>
     </div>
 
     <a class="skip-link" href="#main">Skip to main content</a>
