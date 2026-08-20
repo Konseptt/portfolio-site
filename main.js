@@ -3,47 +3,39 @@
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const bgVideo = document.querySelector(".bg-video");
-  const connection =
-    navigator.connection ||
-    navigator.mozConnection ||
-    navigator.webkitConnection;
-  const saveData = Boolean(connection && connection.saveData);
+  /* Classic hallway / r/ProgrammerHumor staples — woven into chrome, not a joke page */
+  const QUIPS = [
+    "There are 10 types of people: those who get binary, and those who don't.",
+    "Why do programmers mix up Halloween & Christmas? Oct 31 = Dec 25.",
+    "An SQL query walks into a bar, sees two tables, asks: can I join you?",
+    "I'd tell you a UDP joke, but you might not get it.",
+    "It works on my machine.™",
+    "Debugging: being the detective in a crime you committed.",
+    "There's no place like 127.0.0.1.",
+    "git commit -m \"final final FINAL version\"",
+    "How many psychologists to change a lightbulb? One — if it wants to change.",
+    "Freudian slip: when you say one thing and mean your mother.",
+    "Does the name Pavlov ring a bell?",
+    "Psychologists meet: \"You're fine, how am I?\"",
+    "My code doesn't have bugs — it develops random features.",
+    "I don't always test my code, but when I do, I do it in production.",
+    "A programmer's favorite hangout: the foo bar.",
+    "To understand recursion, you must first understand recursion.",
+  ];
 
-  if (bgVideo) {
-    const bgSource = bgVideo.querySelector("source[data-src]");
-    const shouldLoadVideo = !prefersReduced && !saveData;
+  const statusLine = document.getElementById("status-line");
+  const footerQuip = document.getElementById("footer-quip");
+  let quipIndex = Math.floor(Math.random() * QUIPS.length);
 
-    if (!shouldLoadVideo) {
-      bgVideo.pause();
-      bgVideo.removeAttribute("autoplay");
-    } else {
-      const activateVideo = () => {
-        if (bgSource && bgSource.dataset.src && !bgSource.src) {
-          bgSource.src = bgSource.dataset.src;
-          bgVideo.load();
-        }
-        bgVideo.play().catch(() => {});
-      };
-
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(activateVideo, { timeout: 1500 });
-      } else {
-        setTimeout(activateVideo, 300);
-      }
-
-      document.addEventListener(
-        "visibilitychange",
-        () => {
-          if (document.hidden) {
-            bgVideo.pause();
-          } else {
-            bgVideo.play().catch(() => {});
-          }
-        },
-        { passive: true }
-      );
-    }
+  function paintQuip() {
+    const text = QUIPS[quipIndex % QUIPS.length];
+    if (statusLine) statusLine.textContent = text;
+    if (footerQuip) footerQuip.textContent = text;
+    quipIndex += 1;
+  }
+  paintQuip();
+  if (!prefersReduced) {
+    setInterval(paintQuip, 9000);
   }
 
   const grid = document.getElementById("project-grid");
@@ -51,7 +43,7 @@
 
   if (projects.length === 0) {
     grid.innerHTML =
-      '<p class="project-empty mono">No projects listed - add entries in <code>projects.js</code>.</p>';
+      "<p class=\"project-empty mono\">No projects listed — add entries in <code>projects.js</code>. Or dont. Chaos is also a strategy.</p>";
   }
 
   function escapeHtml(s) {
@@ -131,29 +123,29 @@
     });
   }
 
-  /* ---------- Artistic ink-brush cursor (canvas trail + hand-drawn nib) ---------- */
-    const inkCanvas = document.querySelector(".cursor-ink");
-    const nibWrap = document.querySelector(".cursor-nib-wrap");
-    const cursorChip = document.querySelector(".cursor-chip");
-    const hero = document.querySelector("[data-parallax]");
-    const useCustomCursor =
-      inkCanvas &&
-      nibWrap &&
-      !prefersReduced &&
-      window.matchMedia("(hover: hover)").matches &&
-      window.matchMedia("(pointer: fine)").matches;
+  /* Artistic ink-brush cursor */
+  const inkCanvas = document.querySelector(".cursor-ink");
+  const nibWrap = document.querySelector(".cursor-nib-wrap");
+  const cursorChip = document.querySelector(".cursor-chip");
+  const hero = document.querySelector("[data-parallax]");
+  const useCustomCursor =
+    inkCanvas &&
+    nibWrap &&
+    !prefersReduced &&
+    window.matchMedia("(hover: hover)").matches &&
+    window.matchMedia("(pointer: fine)").matches;
 
-    function lerp(a, b, n) {
-      return (1 - n) * a + n * b;
-    }
+  function lerp(a, b, n) {
+    return (1 - n) * a + n * b;
+  }
 
-    if (useCustomCursor) {
-      const ctx = inkCanvas.getContext("2d");
-      const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-      const nib = { x: mouse.x, y: mouse.y, angle: -28 };
+  if (useCustomCursor) {
+    const ctx = inkCanvas.getContext("2d");
+    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const nib = { x: mouse.x, y: mouse.y, angle: -28 };
     const trail = [];
     const splats = [];
-      const MAX_TRAIL = 56;
+    const MAX_TRAIL = 56;
     let hoveringLink = false;
     let lastT = performance.now();
 
@@ -244,11 +236,9 @@
           const label =
             link.classList.contains("contact-email") || href.startsWith("mailto:")
               ? "mail"
-              : link.id === "joke-next" || link.id === "joke-reveal"
-                ? "tap"
-                : link.classList.contains("project-row")
-                  ? "open"
-                  : "go";
+              : link.classList.contains("project-row")
+                ? "yeet"
+                : "go";
           if (cursorChip) cursorChip.setAttribute("data-text", label);
         } else if (hoveringLink) {
           hoveringLink = false;
@@ -267,7 +257,6 @@
       nibWrap.style.transform = `translate3d(${nib.x - 10}px, ${nib.y - 8}px, 0)`;
       nibWrap.style.setProperty("--nib-angle", `${nib.angle}deg`);
 
-      // Ink ribbon — tapering quadratic strokes along the trail
       for (let i = 1; i < trail.length; i++) {
         const a = trail[i - 1];
         const b = trail[i];
@@ -277,7 +266,6 @@
         const mx = (a.x + b.x) / 2;
         const my = (a.y + b.y) / 2;
 
-        // Soft outer wash
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.quadraticCurveTo(a.x, a.y, mx, my);
@@ -287,7 +275,6 @@
         ctx.lineJoin = "round";
         ctx.stroke();
 
-        // Harder ink core
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.quadraticCurveTo(a.x, a.y, mx, my);
@@ -346,49 +333,6 @@
       el.style.transform = "";
     });
   });
-
-  /* ---------- Jokes deck (CS + Psych classics) ---------- */
-  const jokes = window.PORTFOLIO_JOKES || [];
-  const jokeSetup = document.getElementById("joke-setup");
-  const jokePunch = document.getElementById("joke-punch");
-  const jokeField = document.getElementById("joke-field");
-  const jokeCount = document.getElementById("joke-count");
-  const jokeNext = document.getElementById("joke-next");
-  const jokeReveal = document.getElementById("joke-reveal");
-  let jokeIndex = 0;
-  let punchVisible = false;
-
-  function showJoke(i) {
-    if (!jokes.length || !jokeSetup) return;
-    jokeIndex = ((i % jokes.length) + jokes.length) % jokes.length;
-    const j = jokes[jokeIndex];
-    jokeSetup.textContent = j.setup;
-    jokePunch.textContent = j.punch;
-    punchVisible = false;
-    jokePunch.classList.add("is-hidden");
-    jokePunch.setAttribute("aria-hidden", "true");
-    if (jokeField) {
-      jokeField.textContent = j.field;
-      jokeField.classList.toggle("is-psych", j.field === "Psych");
-    }
-    if (jokeCount) {
-      jokeCount.textContent = `${padIndex(jokeIndex + 1)} / ${padIndex(jokes.length)}`;
-    }
-    if (jokeReveal) jokeReveal.textContent = "Reveal punchline";
-  }
-
-  if (jokeNext) {
-    jokeNext.addEventListener("click", () => showJoke(jokeIndex + 1));
-  }
-  if (jokeReveal) {
-    jokeReveal.addEventListener("click", () => {
-      punchVisible = !punchVisible;
-      jokePunch.classList.toggle("is-hidden", !punchVisible);
-      jokePunch.setAttribute("aria-hidden", punchVisible ? "false" : "true");
-      jokeReveal.textContent = punchVisible ? "Hide punchline" : "Reveal punchline";
-    });
-  }
-  showJoke(Math.floor(Math.random() * Math.max(jokes.length, 1)));
 
   const toReveal = document.querySelectorAll(".reveal, .reveal-card");
   const io = new IntersectionObserver(

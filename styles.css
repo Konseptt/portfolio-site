@@ -1,12 +1,11 @@
 :root {
-  --void: #070708;
-  /* High-contrast text on dark video + overlay */
-  --ink: #f7f4ef;
-  --dim: rgba(247, 244, 239, 0.82);
-  --muted: rgba(247, 244, 239, 0.68);
-  --faint: rgba(247, 244, 239, 0.22);
-  --burn: #ff5a1f;
-  --acid: #d4ff4a;
+  --void: #0c0b0a;
+  --ink: #f3efe6;
+  --dim: rgba(243, 239, 230, 0.82);
+  --muted: rgba(243, 239, 230, 0.62);
+  --faint: rgba(243, 239, 230, 0.18);
+  --burn: #e85d2c;
+  --acid: #e8d5a3;
   --font-display: "Anton", impact, sans-serif;
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -47,11 +46,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Slight shadow so type stays readable on busy video frames */
+/* Slight shadow so type stays readable */
 main,
 .site-header,
-.site-footer {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+.site-footer,
+.status-line {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 /* Landing hero: no shadow layer over the headline (cleaner stroke text) */
@@ -64,54 +64,35 @@ main,
   font-family: var(--font-mono);
 }
 
-/* Video */
-.video-layer {
+/* Handmade atmosphere — no stock cyber video */
+.atmosphere {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 55% at 12% 18%, rgba(232, 93, 44, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 88% 78%, rgba(120, 90, 60, 0.12), transparent 50%),
+    linear-gradient(165deg, #12100e 0%, #0c0b0a 42%, #15110f 100%);
 }
 
-.bg-video {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate3d(-50%, -50%, 0);
-  object-fit: cover;
-}
-
-/* Slightly lighter scrim so body copy isn’t fighting pure black */
-.video-overlay {
+.atmosphere-wash {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-      165deg,
-      rgba(8, 9, 12, 0.88) 0%,
-      rgba(10, 14, 20, 0.72) 38%,
-      rgba(18, 12, 10, 0.62) 68%,
-      rgba(6, 7, 9, 0.86) 100%
-    ),
-    radial-gradient(
-      ellipse 90% 70% at 10% 90%,
-      rgba(255, 90, 31, 0.12),
-      transparent 55%
-    ),
-    radial-gradient(
-      ellipse 60% 50% at 90% 15%,
-      rgba(90, 200, 220, 0.07),
-      transparent 45%
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(243, 239, 230, 0.03) 40%,
+      transparent 70%
     );
 }
 
-.video-grain {
+.atmosphere-grain {
   position: absolute;
   inset: 0;
-  opacity: 0.4;
-  pointer-events: none;
+  opacity: 0.45;
   background-image: repeating-linear-gradient(
       0deg,
       transparent,
@@ -130,8 +111,8 @@ main,
 }
 
 @media (max-width: 768px) {
-  .video-grain {
-    opacity: 0.25;
+  .atmosphere-grain {
+    opacity: 0.28;
   }
 }
 
@@ -299,8 +280,8 @@ main,
   top: 0.75rem;
   z-index: 10001;
   padding: 0.5rem 1rem;
-  background: var(--acid);
-  color: #080808;
+  background: var(--burn);
+  color: #0c0b0a;
   font-family: var(--font-mono);
   font-weight: 600;
 }
@@ -358,7 +339,7 @@ main,
 }
 .nav a:hover,
 .nav a:focus-visible {
-  color: var(--acid);
+  color: var(--burn);
 }
 
 .nav-out {
@@ -424,6 +405,39 @@ main {
   font-size: 0.92rem;
   line-height: 1.65;
   margin: 0;
+}
+
+.hero-bit {
+  color: var(--burn);
+  font-weight: 600;
+}
+
+.hero-aside {
+  margin: 1rem 0 0;
+  max-width: 48ch;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Rotating hallway quips under the header */
+.status-line {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 0.55rem 1.5rem 0.55rem calc(var(--rail) + 1.25rem);
+  border-bottom: 1px solid var(--faint);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.35);
+  min-height: 2.1rem;
+}
+
+@media (max-width: 640px) {
+  .status-line {
+    padding-left: 1.25rem;
+  }
 }
 
 /* Work / project list */
@@ -725,112 +739,7 @@ main {
   display: none;
 }
 
-/* Jokes / lab notes */
-.jokes-section {
-  padding-top: 1rem;
-}
-
-.jokes-head {
-  margin-bottom: 1.25rem;
-}
-
-.joke-stage {
-  border: 1px solid var(--faint);
-  background: rgba(0, 0, 0, 0.42);
-  padding: clamp(1.25rem, 3vw, 2rem);
-  max-width: 40rem;
-  position: relative;
-}
-
-.joke-stage::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, var(--burn), var(--acid));
-}
-
-.joke-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.joke-field {
-  color: var(--acid);
-  border: 1px solid rgba(212, 255, 74, 0.35);
-  padding: 0.2rem 0.5rem;
-}
-
-.joke-field.is-psych {
-  color: #b8f5ff;
-  border-color: rgba(184, 245, 255, 0.35);
-}
-
-.joke-count {
-  color: var(--muted);
-}
-
-.joke-setup {
-  margin: 0 0 0.85rem;
-  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-  line-height: 1.45;
-  color: var(--ink);
-  font-family: var(--font-sans);
-}
-
-.joke-punch {
-  margin: 0 0 1.35rem;
-  min-height: 1.6em;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--dim);
-  font-style: italic;
-}
-
-.joke-punch.is-hidden {
-  filter: blur(5px);
-  user-select: none;
-  opacity: 0.55;
-}
-
-.joke-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-}
-
-.joke-btn {
-  appearance: none;
-  border: 1px solid rgba(247, 244, 239, 0.35);
-  background: rgba(247, 244, 239, 0.06);
-  color: var(--ink);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.65rem 0.95rem;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-
-.joke-btn:hover,
-.joke-btn:focus-visible {
-  background: rgba(212, 255, 74, 0.12);
-  border-color: rgba(212, 255, 74, 0.55);
-  color: var(--acid);
-  outline: none;
-}
-
-.joke-btn--ghost {
-  border-style: dashed;
-  color: var(--muted);
-}
+/* Jokes section removed — humor lives in copy site-wide */
 
 /* Contact */
 .contact-section {
@@ -853,9 +762,9 @@ main {
   display: inline-block;
   font-size: clamp(1.05rem, 2.4vw, 1.75rem);
   font-weight: 500;
-  color: #b8f5ff;
+  color: #f0c9a0;
   text-decoration: none;
-  border-bottom: 2px solid rgba(184, 245, 255, 0.55);
+  border-bottom: 2px solid rgba(240, 201, 160, 0.5);
   padding-bottom: 0.15rem;
   transition: color 0.15s, border-color 0.15s;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
@@ -863,8 +772,16 @@ main {
 
 .contact-email:hover,
 .contact-email:focus-visible {
-  color: #e8fbff;
-  border-bottom-color: var(--acid);
+  color: var(--ink);
+  border-bottom-color: var(--burn);
+}
+
+.contact-footnote {
+  margin: 1rem 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  max-width: 42ch;
 }
 
 /* Footer */

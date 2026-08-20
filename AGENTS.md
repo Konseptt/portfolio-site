@@ -6,21 +6,20 @@ This repo is a **static** HTML/CSS/JS portfolio (no `package.json`, no build ste
 
 ### Run locally
 
-Serve the repo root (required so relative asset paths resolve):
-
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000/`. Node is also fine: `npx --yes serve -l 8000`.
+Open `http://localhost:8000/`.
 
-### What to exercise
+### What matters
 
-- Custom ink cursor (desktop fine pointer only): hand-drawn SVG nib + canvas trail in `main.js` / `styles.css`. Hidden when `prefers-reduced-motion` or coarse/touch pointers.
-- Project grid from `projects.js` (ordered hardest / most relevant first).
-- Joke deck from `jokes.js` — Lab notes section: Next joke / Reveal punchline.
+- Ink cursor: SVG nib + canvas trail in `main.js` / `styles.css` (desktop fine pointer only).
+- Projects: `projects.js` (hardest / most relevant first; taglines are intentionally humorous).
+- Site-wide quips: rotating status line + footer in `main.js` (`QUIPS`) — hallway / ProgrammerHumor classics, not a separate jokes page.
+- Background is CSS atmosphere (no stock video).
 
 ### Notes
 
-- Do not expect `npm test`, `npm run lint`, or a framework build.
-- Prefer editing content in `projects.js` / `jokes.js` over inventing new tooling.
+- No `npm test` / lint / framework build.
+- Prefer editing `projects.js` and copy in `index.html` over adding tooling.
