@@ -34,9 +34,6 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .marquee-inner {
-    animation: none !important;
-  }
 }
 
 body {
@@ -132,61 +129,10 @@ main,
   mix-blend-mode: overlay;
 }
 
-/* Subtle CRT-ish lines - CSS only, cheap */
-.video-scanlines {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.04;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.35) 2px,
-    rgba(0, 0, 0, 0.35) 3px
-  );
-}
-
 @media (max-width: 768px) {
   .video-grain {
     opacity: 0.25;
   }
-}
-
-/* Corner brackets */
-.frame-corners {
-  position: fixed;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.corner {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  border-color: var(--faint);
-  border-style: solid;
-}
-.corner-tl {
-  top: 1rem;
-  left: 1rem;
-  border-width: 1px 0 0 1px;
-}
-.corner-tr {
-  top: 1rem;
-  right: 1rem;
-  border-width: 1px 1px 0 0;
-}
-.corner-bl {
-  bottom: 1rem;
-  left: 1rem;
-  border-width: 0 0 1px 1px;
-}
-.corner-br {
-  bottom: 1rem;
-  right: 1rem;
-  border-width: 0 1px 1px 0;
 }
 
 /* Rail */
@@ -230,54 +176,118 @@ main,
   }
 }
 
-/* Cursor */
-.cursor-dot,
-.cursor-ring {
+/*
+  Editorial reticle cursor — print/drafting feel, not the usual glowing orb.
+  Inspired by blend-mode portfolio cursors (Olivier Larose / Trionn pattern)
+  but shaped as a typesetter's crosshair + lagging plate with context label.
+*/
+.cursor {
   display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: none;
+  @media (prefers-reduced-motion: no-preference) {
+    body {
+      cursor: none;
+    }
+    a,
+    button {
+      cursor: none;
+    }
+
+    .cursor {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+      mix-blend-mode: difference;
+      will-change: transform;
+    }
   }
-  a,
-  button {
-    cursor: none;
+
+  .cursor-hair {
+    position: absolute;
+    background: #fff;
+    opacity: 0.95;
   }
-  .cursor-dot,
-  .cursor-ring {
-    display: block;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
+
+  .cursor-hair-x {
+    width: 18px;
+    height: 1px;
+    top: 0;
+    left: -9px;
   }
-  .cursor-dot {
-    width: 6px;
-    height: 6px;
-    margin: -3px 0 0 -3px;
-    border-radius: 0;
-    background: var(--acid);
-    box-shadow: 0 0 12px rgba(200, 255, 0, 0.45);
-    will-change: transform;
+
+  .cursor-hair-y {
+    width: 1px;
+    height: 18px;
+    top: -9px;
+    left: 0;
   }
-  .cursor-ring {
-    width: 32px;
-    height: 32px;
-    margin: -16px 0 0 -16px;
-    border-radius: 0;
-    border: 1px solid rgba(247, 244, 239, 0.5);
-    will-change: transform;
-    transition: width 0.15s, height 0.15s, margin 0.15s, border-color 0.15s;
+
+  .cursor-plate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate3d(0, 0, 0);
+    will-change: transform, width, height, margin;
+    transition:
+      width 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      height 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      margin 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      background 0.18s ease;
   }
-  body.is-pointer-down .cursor-dot {
-    transform: scale(0.7);
-    background: var(--burn);
+
+  .cursor-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #000;
+    opacity: 0;
+    white-space: nowrap;
+    transform: translateY(2px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
   }
-  body.is-hovering-link .cursor-ring {
-    width: 40px;
-    height: 40px;
-    margin: -20px 0 0 -20px;
-    border-color: rgba(255, 77, 0, 0.75);
+
+  body.is-hovering-link .cursor-hair {
+    opacity: 0.35;
+  }
+
+  body.is-hovering-link .cursor-plate {
+    width: 72px;
+    height: 28px;
+    margin: -14px 0 0 -36px;
+    background: #fff;
+  }
+
+  body.is-hovering-link .cursor-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  body.is-hovering-link .cursor-label::before {
+    content: attr(data-text);
+  }
+
+  body.is-pointer-down .cursor-plate {
+    width: 18px;
+    height: 18px;
+    margin: -9px 0 0 -9px;
+  }
+
+  body.is-pointer-down.is-hovering-link .cursor-plate {
+    width: 64px;
+    height: 24px;
+    margin: -12px 0 0 -32px;
   }
 }
 
@@ -414,100 +424,6 @@ main {
   margin: 0;
 }
 
-.hero-whisper {
-  margin: 1rem 0 0;
-  font-size: 0.82rem;
-  line-height: 1.55;
-  color: var(--dim);
-  font-style: normal;
-  max-width: 48ch;
-}
-
-.hero-whisper-mono {
-  color: var(--acid);
-  font-weight: 500;
-  margin-right: 0.4em;
-}
-
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.28rem 0.65rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 999px;
-  border: 1px solid rgba(247, 244, 239, 0.2);
-}
-
-.badge--pro {
-  color: var(--acid);
-  background: rgba(212, 255, 74, 0.08);
-  border-color: rgba(212, 255, 74, 0.35);
-}
-
-.badge--fun {
-  color: var(--burn);
-  background: rgba(255, 90, 31, 0.1);
-  border-color: rgba(255, 90, 31, 0.4);
-}
-
-/* Slight “pinned note” tilt - breaks the perfect grid feel */
-.badge--tilt-l {
-  transform: rotate(-0.7deg);
-}
-.badge--tilt-r {
-  transform: rotate(0.55deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .badge--tilt-l,
-  .badge--tilt-r {
-    transform: none;
-  }
-}
-
-/* Marquee */
-.marquee {
-  overflow: hidden;
-  border-top: 1px solid var(--faint);
-  border-bottom: 1px solid var(--faint);
-  padding: 0.65rem 0;
-  background: rgba(0, 0, 0, 0.35);
-}
-
-.marquee-inner {
-  display: flex;
-  width: max-content;
-  gap: 0;
-  font-size: 0.68rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--muted);
-  animation: marquee 32s linear infinite;
-}
-
-.marquee-chunk {
-  white-space: nowrap;
-  padding-right: 3rem;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* Work / project list */
 .section {
   padding: 2.5rem clamp(1.25rem, 3vw, 2.5rem) 3rem;
@@ -523,7 +439,6 @@ main {
   font-size: 0.78rem;
   line-height: 1.45;
   color: var(--muted);
-  font-style: italic;
   max-width: 42ch;
 }
 
@@ -874,7 +789,6 @@ main {
   line-height: 1.5;
   letter-spacing: 0.01em;
   color: var(--dim);
-  font-style: italic;
 }
 
 @media (max-width: 640px) {
@@ -908,9 +822,6 @@ main {
 }
 .reveal-delay-3 {
   transition-delay: 0.15s;
-}
-.reveal-delay-4 {
-  transition-delay: 0.2s;
 }
 
 @media (prefers-reduced-motion: reduce) {

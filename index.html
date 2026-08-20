@@ -95,8 +95,13 @@
     </script>
   </head>
   <body>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true">
+      <div class="cursor-hair cursor-hair-x"></div>
+      <div class="cursor-hair cursor-hair-y"></div>
+      <div class="cursor-plate">
+        <span class="cursor-label mono"></span>
+      </div>
+    </div>
 
     <div class="video-layer" aria-hidden="true">
       <video
@@ -115,14 +120,6 @@
       </video>
       <div class="video-overlay"></div>
       <div class="video-grain"></div>
-      <div class="video-scanlines" aria-hidden="true"></div>
-    </div>
-
-    <div class="frame-corners" aria-hidden="true">
-      <span class="corner corner-tl"></span>
-      <span class="corner corner-tr"></span>
-      <span class="corner corner-bl"></span>
-      <span class="corner corner-br"></span>
     </div>
 
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -142,49 +139,24 @@
 
     <main id="main">
       <section class="hero" data-parallax>
-        <div class="hero-badges" aria-label="Context">
-          <span class="badge badge--pro mono badge--tilt-l">Built with intent, shipped worldwide</span>
-          <span class="badge badge--fun mono badge--tilt-r">Coffee, commits, and questionable fixes</span>
-        </div>
         <p class="hero-kicker mono reveal">Ranjan Sharma</p>
         <h1 class="hero-title">
-          <span class="hero-line reveal reveal-delay-1">Stuff I’ve built</span>
+          <span class="hero-line reveal reveal-delay-1">Selected work</span>
           <span class="hero-line hero-line-accent reveal reveal-delay-2"
-            >and still poke at</span
+            >from the last few years</span
           >
         </h1>
         <p class="hero-lede reveal reveal-delay-3">
-          Password tools, résumé analyzers, interview-question forecasting, syllabus-to-calendar parsers, a
-          natural-language syntax experiment, sudoku, and other things I made because
-          saying “someone should build this” felt like a personal attack.
-        </p>
-        <p class="hero-whisper reveal reveal-delay-4">
-          <span class="hero-whisper-mono mono">No template.</span>
-          Hand-written markup, hand-rolled bugs, and occasional existential
-          debates with CSS grid. If something breaks, blame cache first.
+          Compilers, crypto utilities, PDF parsers, and a few small products that
+          stuck around. Ordered by how much of me is in them — hardest first.
         </p>
       </section>
 
-      <div class="marquee mono" aria-hidden="true">
-        <div class="marquee-inner">
-          <span class="marquee-chunk"
-            >Argon2 · Regex · Off-by-one · Null pointer lore · Ship it Friday ·
-            Works on my machine · Argon2 · Regex · Off-by-one ·
-          </span>
-          <span class="marquee-chunk"
-            >Argon2 · Regex · Off-by-one · Null pointer lore · Ship it Friday ·
-            Works on my machine · Argon2 · Regex · Off-by-one ·
-          </span>
-        </div>
-      </div>
-
       <section id="work" class="section work-section">
         <header class="work-head">
-          <h2 class="work-label mono">Selected work</h2>
+          <h2 class="work-label mono">Projects</h2>
           <p class="whisper">
-            Same human behind the fake Win95 desktop and the PDF date parser.
-            External links open in a new tab so your current debugging tab can
-            stay emotionally safe.
+            Links open in a new tab. Most of these live on their own domains.
           </p>
         </header>
         <div id="project-grid" class="project-list"></div>
@@ -193,8 +165,7 @@
       <section id="contact" class="section contact-section">
         <h2 class="contact-heading mono">Email</h2>
         <p class="whisper">
-          Send work, bugs, or cursed stack traces. I reply when I finish
-          negotiating peace with my terminal.
+          Work, bugs, or questions — say hello.
         </p>
         <a
           class="contact-email magnetic mono"
@@ -210,8 +181,7 @@
         <span class="footer-time" id="footer-time"></span>
       </div>
       <p class="site-footer-tagline">
-        Plain HTML, CSS, and one suspiciously confident JS file. No framework
-        was harmed, though one semicolon was emotionally shaken.
+        Hand-built with HTML, CSS, and a little JavaScript. No framework.
       </p>
     </footer>
 

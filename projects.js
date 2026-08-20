@@ -1,53 +1,13 @@
 window.PORTFOLIO_PROJECTS = [
   {
-    title: "Flex-O-Matic 5000",
+    title: "LyangLang",
     tagline:
-      "Paste any project and instantly forge three LinkedIn-ready posts: technical breakdown, story mode, and lessons learned.",
-    tags: ["AI", "LinkedIn", "Writing", "Web"],
+      "Programming language with natural-language syntax - learn core ideas in a familiar language. Rust-powered lyangpiler, installers, releases.",
+    tags: ["Rust", "Compiler", "OSS"],
     year: "2026",
-    url: "https://flex.ranjansharma.name.np/",
-    accent: "#f97316",
-    thumb: "assets/thumbs/flex.png",
-  },
-  {
-    title: "Plant Field Journal",
-    tagline:
-      "Photograph any plant to identify the species, then keep practical care notes for watering, light, and growth in one place.",
-    tags: ["AI", "Plants", "Care", "Web"],
-    year: "2026",
-    url: "https://plant.ranjansharma.info.np/",
-    accent: "#84cc16",
-    thumb: "assets/thumbs/plant.jpg",
-  },
-  {
-    title: "GitHub Profile Roaster",
-    tagline:
-      "Enter a GitHub username - we read public repos, commits, languages, and READMEs, then roast what hurts.",
-    tags: ["AI", "GitHub", "Roast", "Web"],
-    year: "2026",
-    url: "https://github.ranjansharma.info.np/",
-    accent: "#ef4444",
-    thumb: "assets/thumbs/github-roaster.jpg",
-  },
-  {
-    title: "The Faculty Ledger",
-    tagline:
-      "Look up professors by name or school - pull Rate My Professors reviews, difficulty scores, course history, and side-by-side comparisons before you register.",
-    tags: ["Education", "Reviews", "AI", "Web"],
-    year: "2026",
-    url: "https://faculty.ranjansharma.info.np/",
-    accent: "#b45309",
-    thumb: "assets/thumbs/faculty.jpg",
-  },
-  {
-    title: "PrismClause",
-    tagline:
-      "ToS red-flag scanner - drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
-    tags: ["LegalTech", "Policy", "Web"],
-    year: "2026",
-    url: "https://tos.ranjansharma.info.np/",
-    accent: "#ff7849",
-    thumb: "assets/thumbs/prismclause-ranjansharma.png?v=20260421",
+    url: "https://github.com/Konseptt/LyangLang",
+    accent: "#dea584",
+    thumb: "assets/thumbs/lyanglang-github.png",
   },
   {
     title: "Hashpass",
@@ -60,14 +20,14 @@ window.PORTFOLIO_PROJECTS = [
     thumb: "assets/thumbs/hashpass-ranjansharma.png",
   },
   {
-    title: "Gap Sheet",
+    title: "SyllabusCal",
     tagline:
-      "Job posting vs. your résumé - paste both (PDF ok) and get a straight list of gaps and wording fixes. No pep talk.",
-    tags: ["Career", "Resume", "Web"],
+      "Upload a syllabus PDF - AI extracts due dates, exams, and readings - export a .ics for Google Calendar. Processing stays in-memory.",
+    tags: ["AI", "PDF", "Calendar"],
     year: "2026",
-    url: "https://resume.ranjansharma.info.np/",
-    accent: "#f0d000",
-    thumb: "assets/thumbs/gap-sheet-resume.png",
+    url: "https://syllabuscal.ranjansharma.info.np/",
+    accent: "#fde047",
+    thumb: "assets/thumbs/syllabuscal-ranjansharma.png",
   },
   {
     title: "Interview Question Forecaster",
@@ -83,34 +43,24 @@ window.PORTFOLIO_PROJECTS = [
     thumbImgHeight: 236,
   },
   {
-    title: "SyllabusCal",
+    title: "PrismClause",
     tagline:
-      "Upload a syllabus PDF - AI extracts due dates, exams, and readings - export a .ics for Google Calendar. Processing stays in-memory.",
-    tags: ["AI", "PDF", "Calendar"],
+      "ToS red-flag scanner - drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
+    tags: ["LegalTech", "Policy", "Web"],
     year: "2026",
-    url: "https://syllabuscal.ranjansharma.info.np/",
-    accent: "#fde047",
-    thumb: "assets/thumbs/syllabuscal-ranjansharma.png",
+    url: "https://tos.ranjansharma.info.np/",
+    accent: "#ff7849",
+    thumb: "assets/thumbs/prismclause-ranjansharma.png?v=20260421",
   },
   {
-    title: "LyangLang",
+    title: "Gap Sheet",
     tagline:
-      "Programming language with natural-language syntax - learn core ideas in a familiar language. Rust-powered lyangpiler, installers, releases.",
-    tags: ["Rust", "Compiler", "OSS"],
+      "Job posting vs. your résumé - paste both (PDF ok) and get a straight list of gaps and wording fixes. No pep talk.",
+    tags: ["Career", "Resume", "Web"],
     year: "2026",
-    url: "https://github.com/Konseptt/LyangLang",
-    accent: "#dea584",
-    thumb: "assets/thumbs/lyanglang-github.png",
-  },
-  {
-    title: "QR Code Generator",
-    tagline:
-      "QRs for URL, text, Wi-Fi, contacts, or bulk - pick colors, optional logo, download. Works in the browser.",
-    tags: ["QR", "Web", "Tools"],
-    year: "2026",
-    url: "https://qr.ranjansharma.info.np/",
-    accent: "#2dd4bf",
-    thumb: "assets/thumbs/qr-ranjansharma.png",
+    url: "https://resume.ranjansharma.info.np/",
+    accent: "#f0d000",
+    thumb: "assets/thumbs/gap-sheet-resume.png",
   },
   {
     title: "RetroSudoku",
@@ -133,6 +83,26 @@ window.PORTFOLIO_PROJECTS = [
     thumb: "assets/thumbs/rust-av-simulation-github.png",
   },
   {
+    title: "The Faculty Ledger",
+    tagline:
+      "Look up professors by name or school - pull Rate My Professors reviews, difficulty scores, course history, and side-by-side comparisons before you register.",
+    tags: ["Education", "Reviews", "AI", "Web"],
+    year: "2026",
+    url: "https://faculty.ranjansharma.info.np/",
+    accent: "#b45309",
+    thumb: "assets/thumbs/faculty.jpg",
+  },
+  {
+    title: "QR Code Generator",
+    tagline:
+      "QRs for URL, text, Wi-Fi, contacts, or bulk - pick colors, optional logo, download. Works in the browser.",
+    tags: ["QR", "Web", "Tools"],
+    year: "2026",
+    url: "https://qr.ranjansharma.info.np/",
+    accent: "#2dd4bf",
+    thumb: "assets/thumbs/qr-ranjansharma.png",
+  },
+  {
     title: "Windows 95 Portfolio",
     tagline:
       "Personal site as a fake Windows 95 desktop - icons, Start menu, taskbar, teal wallpaper. Nostalgia with real links.",
@@ -141,5 +111,35 @@ window.PORTFOLIO_PROJECTS = [
     url: "https://95.ranjansharma.info.np/",
     accent: "#008080",
     thumb: "assets/thumbs/win95-portfolio-ranjansharma.png",
+  },
+  {
+    title: "GitHub Profile Roaster",
+    tagline:
+      "Enter a GitHub username - we read public repos, commits, languages, and READMEs, then roast what hurts.",
+    tags: ["AI", "GitHub", "Roast", "Web"],
+    year: "2026",
+    url: "https://github.ranjansharma.info.np/",
+    accent: "#ef4444",
+    thumb: "assets/thumbs/github-roaster.jpg",
+  },
+  {
+    title: "Plant Field Journal",
+    tagline:
+      "Photograph any plant to identify the species, then keep practical care notes for watering, light, and growth in one place.",
+    tags: ["AI", "Plants", "Care", "Web"],
+    year: "2026",
+    url: "https://plant.ranjansharma.info.np/",
+    accent: "#84cc16",
+    thumb: "assets/thumbs/plant.jpg",
+  },
+  {
+    title: "Flex-O-Matic 5000",
+    tagline:
+      "Paste any project and instantly forge three LinkedIn-ready posts: technical breakdown, story mode, and lessons learned.",
+    tags: ["AI", "LinkedIn", "Writing", "Web"],
+    year: "2026",
+    url: "https://flex.ranjansharma.name.np/",
+    accent: "#f97316",
+    thumb: "assets/thumbs/flex.png",
   },
 ];

@@ -4,7 +4,10 @@
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const bgVideo = document.querySelector(".bg-video");
-  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const connection =
+    navigator.connection ||
+    navigator.mozConnection ||
+    navigator.webkitConnection;
   const saveData = Boolean(connection && connection.saveData);
 
   if (bgVideo) {
@@ -129,31 +132,37 @@
     });
   }
 
-  const dot = document.querySelector(".cursor-dot");
-  const ring = document.querySelector(".cursor-ring");
+  /* Editorial reticle: hair follows pointer; plate lerps behind with blend-mode. */
+  const cursor = document.querySelector(".cursor");
+  const cursorPlate = document.querySelector(".cursor-plate");
+  const cursorLabel = document.querySelector(".cursor-label");
   const hero = document.querySelector("[data-parallax]");
   const useCustomCursor =
-    dot &&
-    ring &&
+    cursor &&
+    cursorPlate &&
     !prefersReduced &&
     window.matchMedia("(hover: hover)").matches &&
     window.matchMedia("(pointer: fine)").matches;
 
-  function setCursorPos(x, y) {
-    const t = `translate3d(${x}px, ${y}px, 0)`;
-    if (dot) dot.style.transform = t;
-    if (ring) ring.style.transform = t;
+  function lerp(a, b, n) {
+    return (1 - n) * a + n * b;
   }
 
   if (useCustomCursor) {
-    const cx = window.innerWidth / 2;
-    const cy = window.innerHeight / 2;
-    setCursorPos(cx, cy);
+    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const plate = { x: mouse.x, y: mouse.y };
+    let hoveringLink = false;
+
+    cursor.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
+    cursorPlate.style.transform = `translate3d(0, 0, 0)`;
 
     window.addEventListener(
       "pointermove",
       (e) => {
-        setCursorPos(e.clientX, e.clientY);
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        cursor.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
+
         if (hero) {
           const x = (e.clientX / window.innerWidth - 0.5) * 8;
           const y = (e.clientY / window.innerHeight - 0.5) * 5;
@@ -162,6 +171,15 @@
       },
       { passive: true }
     );
+
+    (function tickCursor() {
+      plate.x = lerp(plate.x, mouse.x, 0.18);
+      plate.y = lerp(plate.y, mouse.y, 0.18);
+      const dx = plate.x - mouse.x;
+      const dy = plate.y - mouse.y;
+      cursorPlate.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+      requestAnimationFrame(tickCursor);
+    })();
 
     window.addEventListener(
       "pointerdown",
@@ -178,10 +196,24 @@
       "mouseover",
       (e) => {
         const t = e.target;
-        if (t.closest("a, button")) {
-          document.body.classList.add("is-hovering-link");
-        } else {
+        const link = t.closest("a, button");
+        if (link) {
+          if (!hoveringLink) {
+            hoveringLink = true;
+            document.body.classList.add("is-hovering-link");
+          }
+          const label =
+            link.classList.contains("contact-email") ||
+            (link.getAttribute("href") || "").startsWith("mailto:")
+              ? "mail"
+              : link.classList.contains("project-row")
+                ? "open"
+                : "go";
+          if (cursorLabel) cursorLabel.setAttribute("data-text", label);
+        } else if (hoveringLink) {
+          hoveringLink = false;
           document.body.classList.remove("is-hovering-link");
+          if (cursorLabel) cursorLabel.removeAttribute("data-text");
         }
       },
       true
