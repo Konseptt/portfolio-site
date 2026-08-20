@@ -153,7 +153,7 @@
       const nib = { x: mouse.x, y: mouse.y, angle: -28 };
     const trail = [];
     const splats = [];
-    const MAX_TRAIL = 42;
+      const MAX_TRAIL = 56;
     let hoveringLink = false;
     let lastT = performance.now();
 
@@ -183,9 +183,9 @@
         trail.push({
           x: mouse.x,
           y: mouse.y,
-          w: 1.2 + speed * 0.42,
+          w: 2.4 + speed * 0.55,
           life: 1,
-          hue: 28 + speed * 2.2,
+          hue: 18 + speed * 1.8,
         });
         if (trail.length > MAX_TRAIL) trail.shift();
 
@@ -271,18 +271,28 @@
       for (let i = 1; i < trail.length; i++) {
         const a = trail[i - 1];
         const b = trail[i];
-        a.life *= 0.94;
-        const alpha = a.life * 0.55;
-        if (alpha < 0.02) continue;
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
+        a.life *= 0.955;
+        const alpha = a.life * 0.85;
+        if (alpha < 0.03) continue;
         const mx = (a.x + b.x) / 2;
         const my = (a.y + b.y) / 2;
+
+        // Soft outer wash
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
         ctx.quadraticCurveTo(a.x, a.y, mx, my);
-        ctx.strokeStyle = `hsla(${a.hue}, 92%, 62%, ${alpha})`;
-        ctx.lineWidth = a.w * a.life;
+        ctx.strokeStyle = `hsla(${a.hue}, 95%, 58%, ${alpha * 0.35})`;
+        ctx.lineWidth = a.w * a.life * 2.4;
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
+        ctx.stroke();
+
+        // Harder ink core
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.quadraticCurveTo(a.x, a.y, mx, my);
+        ctx.strokeStyle = `hsla(${a.hue + 8}, 100%, 72%, ${alpha})`;
+        ctx.lineWidth = a.w * a.life;
         ctx.stroke();
       }
       while (trail.length && trail[0].life < 0.04) trail.shift();
@@ -295,7 +305,7 @@
         s.vy *= 0.92;
         s.life *= 0.9;
         ctx.beginPath();
-        ctx.fillStyle = `hsla(22, 95%, 58%, ${s.life * 0.75})`;
+        ctx.fillStyle = `hsla(18, 100%, 62%, ${s.life * 0.9})`;
         ctx.arc(s.x, s.y, s.r * s.life, 0, Math.PI * 2);
         ctx.fill();
         if (s.life < 0.05) splats.splice(i, 1);

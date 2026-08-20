@@ -205,6 +205,13 @@ main,
       z-index: 9998;
       pointer-events: none;
       mix-blend-mode: screen;
+      opacity: 0.95;
+    }
+
+    @supports (mix-blend-mode: plus-lighter) {
+      .cursor-ink {
+        mix-blend-mode: plus-lighter;
+      }
     }
 
     .cursor-nib-wrap {
@@ -224,11 +231,11 @@ main,
 
   .cursor-nib {
     display: block;
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
     overflow: visible;
     transform: rotate(var(--nib-angle, -28deg)) scale(var(--nib-scale, 1));
-    transform-origin: 12px 14px;
+    transform-origin: 14px 16px;
   }
 
   .nib-body {

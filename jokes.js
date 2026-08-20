@@ -1,7 +1,7 @@
 window.PORTFOLIO_JOKES = [
   {
     field: "CS",
-    setup: "Why do computer scientists confuse Halloween and Christmas?",
+    setup: "Why do programmers mix up Halloween and Christmas?",
     punch: "Because Oct 31 = Dec 25.",
   },
   {
@@ -46,8 +46,28 @@ window.PORTFOLIO_JOKES = [
   },
   {
     field: "CS",
-    setup: "I've got a UDP joke.",
-    punch: "You might not get it.",
+    setup: "I'd tell you a UDP joke…",
+    punch: "…but you might not get it.",
+  },
+  {
+    field: "CS",
+    setup: "What's the best thing about a Boolean?",
+    punch: "Even if you're wrong, you're only off by a bit.",
+  },
+  {
+    field: "CS",
+    setup: "Two bytes meet. The first asks, “Are you ill?”",
+    punch: "“No — just feeling a bit off.”",
+  },
+  {
+    field: "CS",
+    setup: "What do you call eight hobbits?",
+    punch: "A hobbyte.",
+  },
+  {
+    field: "CS",
+    setup: "How do robots eat pizza?",
+    punch: "One byte at a time.",
   },
   {
     field: "Psych",
@@ -88,5 +108,10 @@ window.PORTFOLIO_JOKES = [
     field: "Psych",
     setup: "Therapist: you need to stop people-pleasing.",
     punch: "Patient: “Sure, if it makes you happy.”",
+  },
+  {
+    field: "Psych",
+    setup: "What's the difference between a psychologist and a psychiatrist?",
+    punch: "About $50 an hour. (Old hallway classic — adjust for inflation.)",
   },
 ];
