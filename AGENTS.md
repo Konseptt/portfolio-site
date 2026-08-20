@@ -16,7 +16,7 @@ Open `http://localhost:8000/`.
 
 - Ink cursor: SVG nib + canvas trail in `main.js` / `styles.css` (desktop fine pointer only).
 - Projects: `projects.js` (hardest / most relevant first; taglines are intentionally humorous).
-- Site-wide quips: rotating status line + footer in `main.js` (`QUIPS`) — hallway / ProgrammerHumor classics, not a separate jokes page.
+- Site-wide quips: rotating status line + footer in `main.js` (`QUIPS`) - hallway / ProgrammerHumor classics, not a separate jokes page.
 - Background is CSS atmosphere (no stock video).
 
 ### Notes

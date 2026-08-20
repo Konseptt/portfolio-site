@@ -3,24 +3,23 @@
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Classic hallway / r/ProgrammerHumor staples — woven into chrome, not a joke page */
+  /* Classic human jokes (old ProgrammerHumor / hallway staples) */
   const QUIPS = [
-    "There are 10 types of people: those who get binary, and those who don't.",
-    "Why do programmers mix up Halloween & Christmas? Oct 31 = Dec 25.",
-    "An SQL query walks into a bar, sees two tables, asks: can I join you?",
+    "There are 10 types of people: those who understand binary, and those who don't.",
+    "Why do programmers mix up Halloween and Christmas? Because Oct 31 = Dec 25.",
+    "An SQL query walks into a bar, walks up to two tables, and asks: Can I join you?",
     "I'd tell you a UDP joke, but you might not get it.",
-    "It works on my machine.™",
-    "Debugging: being the detective in a crime you committed.",
+    "It works on my machine.",
     "There's no place like 127.0.0.1.",
-    "git commit -m \"final final FINAL version\"",
-    "How many psychologists to change a lightbulb? One — if it wants to change.",
-    "Freudian slip: when you say one thing and mean your mother.",
-    "Does the name Pavlov ring a bell?",
-    "Psychologists meet: \"You're fine, how am I?\"",
-    "My code doesn't have bugs — it develops random features.",
-    "I don't always test my code, but when I do, I do it in production.",
-    "A programmer's favorite hangout: the foo bar.",
+    "How many programmers does it take to change a lightbulb? None. That's a hardware problem.",
+    "What's the best thing about a Boolean? Even if you're wrong, you're only off by a bit.",
     "To understand recursion, you must first understand recursion.",
+    "['hip', 'hip'] hip hip array!",
+    "How many psychologists does it take to change a light bulb? Just one. But the light bulb has to want to change.",
+    "Does the name Pavlov ring a bell?",
+    "A Freudian slip is when you say one thing and mean your mother.",
+    "Why do Java developers wear glasses? Because they don't C#.",
+    "Knock knock. A race condition. Who's there?",
   ];
 
   const statusLine = document.getElementById("status-line");
@@ -43,7 +42,7 @@
 
   if (projects.length === 0) {
     grid.innerHTML =
-      "<p class=\"project-empty mono\">No projects listed — add entries in <code>projects.js</code>. Or dont. Chaos is also a strategy.</p>";
+      "<p class=\"project-empty mono\">No projects listed. Add entries in <code>projects.js</code>.</p>";
   }
 
   function escapeHtml(s) {
@@ -237,7 +236,7 @@
             link.classList.contains("contact-email") || href.startsWith("mailto:")
               ? "mail"
               : link.classList.contains("project-row")
-                ? "yeet"
+                ? "open"
                 : "go";
           if (cursorChip) cursorChip.setAttribute("data-text", label);
         } else if (hoveringLink) {

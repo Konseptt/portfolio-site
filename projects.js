@@ -2,7 +2,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "LyangLang",
     tagline:
-      "Built a whole programming language because English was too vague and Rust was lonely. Natural-language syntax, real compiler, installers. Stack overflows optional.",
+      "Programming language with natural-language syntax. Rust compiler (lyangpiler), installers, and releases on GitHub.",
     tags: ["Rust", "Compiler", "OSS"],
     year: "2026",
     url: "https://github.com/Konseptt/LyangLang",
@@ -12,7 +12,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Hashpass",
     tagline:
-      "Not a vault — a calculator. Argon2 + site name → the same strong password every time. Nothing stored. Your therapist keeps secrets; this app physically can't.",
+      "Password calculator, not a vault. Argon2 plus a site name gives the same strong password every time. Nothing is stored.",
     tags: ["Argon2", "Crypto", "Web"],
     year: "2026",
     url: "https://hashpass.ranjansharma.info.np/",
@@ -22,7 +22,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "SyllabusCal",
     tagline:
-      "Upload a syllabus PDF, get due dates as a .ics. Because reading syllabi is a cognitive load study I already failed. Stays in-memory — no cloud guilt.",
+      "Upload a syllabus PDF, extract due dates and exams, export a .ics for your calendar. Processing stays in memory.",
     tags: ["PDF", "Calendar", "Parsing"],
     year: "2026",
     url: "https://syllabuscal.ranjansharma.info.np/",
@@ -32,7 +32,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Interview Question Forecaster",
     tagline:
-      "Paste a job description, get likely questions before the panel does. Retro UI so the panic feels vintage. Streaming optional; sweating included.",
+      "Paste a job description, get likely interview questions, answer frameworks, and red flags. Next.js, streaming optional.",
     tags: ["Next.js", "Career", "Web"],
     year: "2026",
     url: "https://interview.ranjansharma.info.np/",
@@ -45,7 +45,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "PrismClause",
     tagline:
-      "ToS red-flag scanner. Drop a policy, get the clauses that want your firstborn — explained like a human, not a lawyer billing by the hour.",
+      "Terms-of-service scanner. Drop a policy URL, PDF, or text and get the riskiest clauses explained in plain English.",
     tags: ["LegalTech", "Policy", "Web"],
     year: "2026",
     url: "https://tos.ranjansharma.info.np/",
@@ -55,7 +55,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Gap Sheet",
     tagline:
-      "Job posting vs your résumé. Straight gaps, no pep talk. The light bulb has to want to change — this just lists what's dim.",
+      "Paste a job posting and your resume (PDF ok). Get a straight list of gaps and wording fixes. No pep talk.",
     tags: ["Career", "Resume", "Web"],
     year: "2026",
     url: "https://resume.ranjansharma.info.np/",
@@ -65,7 +65,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "RetroSudoku",
     tagline:
-      "DLX solver with human-style hints and CRT themes. Sudoku so you feel productive while avoiding the actual ticket. Offline PWA — works without Wi-Fi or hope.",
+      "Sudoku with a DLX solver, human-style hints, and retro themes. React, TypeScript, Vite, offline PWA.",
     tags: ["React", "TypeScript", "Games"],
     year: "2026",
     url: "https://github.com/Konseptt/retrosudoku",
@@ -75,7 +75,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Rust Car Sim",
     tagline:
-      "Pathfinding car in pure Rust. It avoids obstacles better than I avoid meetings. GUI included; emotional support not.",
+      "Rust simulation of a car with pathfinding, obstacle avoidance, and a simple GUI. 100% Rust.",
     tags: ["Rust", "Simulation", "Pathfinding"],
     year: "2026",
     url: "https://github.com/Konseptt/Rust-Autonomous-Vehicle-Simulation",
@@ -85,7 +85,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "The Faculty Ledger",
     tagline:
-      "Professor lookup before you register. Reviews, difficulty, course history — applied psychology with a search box. Does Pavlov ring a bell? Good.",
+      "Look up professors by name or school. Reviews, difficulty scores, course history, and side-by-side comparisons.",
     tags: ["Education", "Reviews", "Web"],
     year: "2026",
     url: "https://faculty.ranjansharma.info.np/",
@@ -95,7 +95,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "QR Code Generator",
     tagline:
-      "URL, Wi-Fi, contacts, bulk — QR soup in the browser. No backend. No drama. Just squares pretending to be useful.",
+      "Make QRs for URL, text, Wi-Fi, contacts, or bulk lists. Colors, optional logo, download. Runs in the browser.",
     tags: ["QR", "Web", "Tools"],
     year: "2026",
     url: "https://qr.ranjansharma.info.np/",
@@ -105,7 +105,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Windows 95 Portfolio",
     tagline:
-      "Fake Win95 desktop with real links. Start menu nostalgia, zero Blue Screens (so far). Proof that teal wallpaper still converts.",
+      "Personal site as a fake Windows 95 desktop. Icons, Start menu, taskbar, teal wallpaper, real links.",
     tags: ["Web", "Retro", "Portfolio"],
     year: "2026",
     url: "https://95.ranjansharma.info.np/",
@@ -115,7 +115,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "GitHub Profile Roaster",
     tagline:
-      "Enter a username. We read the repos. Then we roast what hurts. Free therapy, except meaner and public.",
+      "Enter a GitHub username. We read public repos, commits, languages, and READMEs, then roast the profile.",
     tags: ["GitHub", "Roast", "Web"],
     year: "2026",
     url: "https://github.ranjansharma.info.np/",
@@ -125,7 +125,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Plant Field Journal",
     tagline:
-      "Snap a plant, ID the species, keep care notes. Schema: water, light, growth. For people who kill basil and call it a learning opportunity.",
+      "Photograph a plant to identify the species, then keep care notes for watering, light, and growth.",
     tags: ["Plants", "Vision", "Web"],
     year: "2026",
     url: "https://plant.ranjansharma.info.np/",
@@ -135,7 +135,7 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Flex-O-Matic 5000",
     tagline:
-      "Paste a project, forge three LinkedIn posts. Technical, story, lessons — so you can flex without typing like a corporate poet.",
+      "Paste a project and get three LinkedIn-ready posts: technical breakdown, story mode, and lessons learned.",
     tags: ["LinkedIn", "Writing", "Web"],
     year: "2026",
     url: "https://flex.ranjansharma.name.np/",
