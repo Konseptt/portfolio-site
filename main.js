@@ -64,7 +64,6 @@
     return String(n).padStart(2, "0");
   }
 
-  /** Safe `aspect-ratio: w/h` inline style when thumb frame should match artwork (OG, etc.). */
   function thumbAspectStyle(p) {
     const raw = p.thumbAspect;
     if (typeof raw !== "string") return "";
@@ -132,36 +131,71 @@
     });
   }
 
-  /* Editorial reticle: hair follows pointer; plate lerps behind with blend-mode. */
-  const cursor = document.querySelector(".cursor");
-  const cursorPlate = document.querySelector(".cursor-plate");
-  const cursorLabel = document.querySelector(".cursor-label");
-  const hero = document.querySelector("[data-parallax]");
-  const useCustomCursor =
-    cursor &&
-    cursorPlate &&
-    !prefersReduced &&
-    window.matchMedia("(hover: hover)").matches &&
-    window.matchMedia("(pointer: fine)").matches;
+  /* ---------- Artistic ink-brush cursor (canvas trail + hand-drawn nib) ---------- */
+    const inkCanvas = document.querySelector(".cursor-ink");
+    const nibWrap = document.querySelector(".cursor-nib-wrap");
+    const cursorChip = document.querySelector(".cursor-chip");
+    const hero = document.querySelector("[data-parallax]");
+    const useCustomCursor =
+      inkCanvas &&
+      nibWrap &&
+      !prefersReduced &&
+      window.matchMedia("(hover: hover)").matches &&
+      window.matchMedia("(pointer: fine)").matches;
 
-  function lerp(a, b, n) {
-    return (1 - n) * a + n * b;
-  }
+    function lerp(a, b, n) {
+      return (1 - n) * a + n * b;
+    }
 
-  if (useCustomCursor) {
-    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    const plate = { x: mouse.x, y: mouse.y };
+    if (useCustomCursor) {
+      const ctx = inkCanvas.getContext("2d");
+      const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+      const nib = { x: mouse.x, y: mouse.y, angle: -28 };
+    const trail = [];
+    const splats = [];
+    const MAX_TRAIL = 42;
     let hoveringLink = false;
+    let lastT = performance.now();
 
-    cursor.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
-    cursorPlate.style.transform = `translate3d(0, 0, 0)`;
+    function resizeInk() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      inkCanvas.width = Math.floor(window.innerWidth * dpr);
+      inkCanvas.height = Math.floor(window.innerHeight * dpr);
+      inkCanvas.style.width = `${window.innerWidth}px`;
+      inkCanvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resizeInk();
+    window.addEventListener("resize", resizeInk, { passive: true });
 
     window.addEventListener(
       "pointermove",
       (e) => {
+        const now = performance.now();
+        const dt = Math.max(8, now - lastT);
+        lastT = now;
+        const dx = e.clientX - mouse.x;
+        const dy = e.clientY - mouse.y;
+        const speed = Math.min(48, Math.hypot(dx, dy) * (16 / dt));
         mouse.x = e.clientX;
         mouse.y = e.clientY;
-        cursor.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
+
+        trail.push({
+          x: mouse.x,
+          y: mouse.y,
+          w: 1.2 + speed * 0.42,
+          life: 1,
+          hue: 28 + speed * 2.2,
+        });
+        if (trail.length > MAX_TRAIL) trail.shift();
+
+        if (Math.abs(dx) + Math.abs(dy) > 0.4) {
+          const target = (Math.atan2(dy, dx) * 180) / Math.PI + 90;
+          let diff = target - nib.angle;
+          while (diff > 180) diff -= 360;
+          while (diff < -180) diff += 360;
+          nib.angle += diff * 0.12;
+        }
 
         if (hero) {
           const x = (e.clientX / window.innerWidth - 0.5) * 8;
@@ -172,18 +206,23 @@
       { passive: true }
     );
 
-    (function tickCursor() {
-      plate.x = lerp(plate.x, mouse.x, 0.18);
-      plate.y = lerp(plate.y, mouse.y, 0.18);
-      const dx = plate.x - mouse.x;
-      const dy = plate.y - mouse.y;
-      cursorPlate.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
-      requestAnimationFrame(tickCursor);
-    })();
-
     window.addEventListener(
       "pointerdown",
-      () => document.body.classList.add("is-pointer-down"),
+      (e) => {
+        document.body.classList.add("is-pointer-down");
+        for (let i = 0; i < 10; i++) {
+          const a = (Math.PI * 2 * i) / 10 + Math.random() * 0.4;
+          const v = 1.4 + Math.random() * 3.2;
+          splats.push({
+            x: e.clientX,
+            y: e.clientY,
+            vx: Math.cos(a) * v,
+            vy: Math.sin(a) * v,
+            r: 1.5 + Math.random() * 3.5,
+            life: 1,
+          });
+        }
+      },
       { passive: true }
     );
     window.addEventListener(
@@ -195,29 +234,75 @@
     document.addEventListener(
       "mouseover",
       (e) => {
-        const t = e.target;
-        const link = t.closest("a, button");
+        const link = e.target.closest("a, button");
         if (link) {
           if (!hoveringLink) {
             hoveringLink = true;
             document.body.classList.add("is-hovering-link");
           }
+          const href = link.getAttribute("href") || "";
           const label =
-            link.classList.contains("contact-email") ||
-            (link.getAttribute("href") || "").startsWith("mailto:")
+            link.classList.contains("contact-email") || href.startsWith("mailto:")
               ? "mail"
-              : link.classList.contains("project-row")
-                ? "open"
-                : "go";
-          if (cursorLabel) cursorLabel.setAttribute("data-text", label);
+              : link.id === "joke-next" || link.id === "joke-reveal"
+                ? "tap"
+                : link.classList.contains("project-row")
+                  ? "open"
+                  : "go";
+          if (cursorChip) cursorChip.setAttribute("data-text", label);
         } else if (hoveringLink) {
           hoveringLink = false;
           document.body.classList.remove("is-hovering-link");
-          if (cursorLabel) cursorLabel.removeAttribute("data-text");
+          if (cursorChip) cursorChip.removeAttribute("data-text");
         }
       },
       true
     );
+
+    (function paint() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      nib.x = lerp(nib.x, mouse.x, 0.28);
+      nib.y = lerp(nib.y, mouse.y, 0.28);
+      nibWrap.style.transform = `translate3d(${nib.x - 10}px, ${nib.y - 8}px, 0)`;
+      nibWrap.style.setProperty("--nib-angle", `${nib.angle}deg`);
+
+      // Ink ribbon — tapering quadratic strokes along the trail
+      for (let i = 1; i < trail.length; i++) {
+        const a = trail[i - 1];
+        const b = trail[i];
+        a.life *= 0.94;
+        const alpha = a.life * 0.55;
+        if (alpha < 0.02) continue;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        const mx = (a.x + b.x) / 2;
+        const my = (a.y + b.y) / 2;
+        ctx.quadraticCurveTo(a.x, a.y, mx, my);
+        ctx.strokeStyle = `hsla(${a.hue}, 92%, 62%, ${alpha})`;
+        ctx.lineWidth = a.w * a.life;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.stroke();
+      }
+      while (trail.length && trail[0].life < 0.04) trail.shift();
+
+      for (let i = splats.length - 1; i >= 0; i--) {
+        const s = splats[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.vx *= 0.92;
+        s.vy *= 0.92;
+        s.life *= 0.9;
+        ctx.beginPath();
+        ctx.fillStyle = `hsla(22, 95%, 58%, ${s.life * 0.75})`;
+        ctx.arc(s.x, s.y, s.r * s.life, 0, Math.PI * 2);
+        ctx.fill();
+        if (s.life < 0.05) splats.splice(i, 1);
+      }
+
+      requestAnimationFrame(paint);
+    })();
   } else if (hero && !prefersReduced) {
     window.addEventListener(
       "pointermove",
@@ -251,6 +336,49 @@
       el.style.transform = "";
     });
   });
+
+  /* ---------- Jokes deck (CS + Psych classics) ---------- */
+  const jokes = window.PORTFOLIO_JOKES || [];
+  const jokeSetup = document.getElementById("joke-setup");
+  const jokePunch = document.getElementById("joke-punch");
+  const jokeField = document.getElementById("joke-field");
+  const jokeCount = document.getElementById("joke-count");
+  const jokeNext = document.getElementById("joke-next");
+  const jokeReveal = document.getElementById("joke-reveal");
+  let jokeIndex = 0;
+  let punchVisible = false;
+
+  function showJoke(i) {
+    if (!jokes.length || !jokeSetup) return;
+    jokeIndex = ((i % jokes.length) + jokes.length) % jokes.length;
+    const j = jokes[jokeIndex];
+    jokeSetup.textContent = j.setup;
+    jokePunch.textContent = j.punch;
+    punchVisible = false;
+    jokePunch.classList.add("is-hidden");
+    jokePunch.setAttribute("aria-hidden", "true");
+    if (jokeField) {
+      jokeField.textContent = j.field;
+      jokeField.classList.toggle("is-psych", j.field === "Psych");
+    }
+    if (jokeCount) {
+      jokeCount.textContent = `${padIndex(jokeIndex + 1)} / ${padIndex(jokes.length)}`;
+    }
+    if (jokeReveal) jokeReveal.textContent = "Reveal punchline";
+  }
+
+  if (jokeNext) {
+    jokeNext.addEventListener("click", () => showJoke(jokeIndex + 1));
+  }
+  if (jokeReveal) {
+    jokeReveal.addEventListener("click", () => {
+      punchVisible = !punchVisible;
+      jokePunch.classList.toggle("is-hidden", !punchVisible);
+      jokePunch.setAttribute("aria-hidden", punchVisible ? "false" : "true");
+      jokeReveal.textContent = punchVisible ? "Hide punchline" : "Reveal punchline";
+    });
+  }
+  showJoke(Math.floor(Math.random() * Math.max(jokes.length, 1)));
 
   const toReveal = document.querySelectorAll(".reveal, .reveal-card");
   const io = new IntersectionObserver(
