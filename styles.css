@@ -804,8 +804,7 @@ main {
 
 .hire-toast-mail {
   color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  text-decoration: none;
 }
 
 .hire-toast-close {
@@ -1469,16 +1468,14 @@ a.project-title:focus-visible {
   font-weight: 500;
   color: var(--acid);
   text-decoration: none;
-  border-bottom: 2px solid rgba(183, 194, 204, 0.45);
   padding-bottom: 0.15rem;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color 0.15s;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .contact-email:hover,
 .contact-email:focus-visible {
   color: var(--ink);
-  border-bottom-color: var(--mark);
 }
 
 /* Footer: path-style elsewhere list, not an icon row */
@@ -2099,7 +2096,6 @@ a.project-title:focus-visible {
 .tldr-mail:hover,
 .tldr-mail:focus-visible {
   color: var(--ink);
-  border-bottom-color: var(--faint);
   outline: none;
 }
 
