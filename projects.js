@@ -2,9 +2,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "LyangLang",
     tagline:
-      "A small programming language where the keywords are Romanized Nepali. Write `bol mug \"Namaste\"` and it prints. Made so friends back home could learn programming in words they already think in.",
+      "A toy programming language with Romanized Nepali keywords. Write `.nbh` files, run them with lyangpiler, and learn programming in words you already think in.",
     built:
-      "Rust. One lexer and parser feed a shared AST; a tree-walking interpreter runs by default and a stack-based bytecode VM runs with --vm, both kept in lockstep by the same test corpus. Ships as the lyangpiler CLI with run / check / new, prebuilt binaries for five targets, and on crates.io as lyanglyang.",
+      "Rust. One lexer and parser feed a shared AST; the default backend is a tree-walking interpreter, and `--vm` runs a bytecode VM that must produce the same results. CLI covers `run`, `check`, and `new`; install via curl script, crates.io (`lyanglyang`), or prebuilt binaries. Topics: compiler, interpreter, Nepali, education.",
     demo: "lyang",
     tags: ["Rust", "Compiler", "VM"],
     year: "2026",
@@ -17,9 +17,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Clinical Trial Matcher",
     tagline:
-      "Paste a patient's notes and it finds clinical trials they could join, ranks them, and says when they'd become eligible if they aren't yet. Built after watching how long that search takes by hand.",
+      "Search international clinical trial registries from patient notes or clinician chart notes. Unlike most matchers, it also forecasts when you could become eligible, not only what fits today.",
     built:
-      "Next.js + TypeScript. Patient narrative goes through an LLM (NVIDIA NIM) for structured extraction; clinician chart notes use rule-based extraction instead. Queries ClinicalTrials.gov, EU-CTR, WHO ICTRP and ISRCTN, scores on diagnosis, biomarker, stage, location and treatment history. The eligibility forecast parses washout windows from registry text against the patient's timeline and exports projected dates as .ics. Optional multi-agent review panel merges per-domain verdicts into a consensus.",
+      "TypeScript. Supports patient narrative input and clinician chart notes, ranked across multiple public registries. Eligibility Forecast is the unique path: washout windows and blockers from registry text against the patient's timeline, with projected dates. Production hardening and deterministic fallbacks for patient summary and eligibility panel. Live: clinicaltrial.ranjansharma.info.np.",
     tags: ["AI", "Backend", "TypeScript"],
     year: "2026",
     url: "https://clinicaltrial.ranjansharma.info.np/",
@@ -31,9 +31,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Plant Field Journal",
     tagline:
-      "Take a photo of a plant, get its name and a care guide that types itself out while you wait. Styled like an old botanist's notebook because that's more fun than a dashboard.",
+      "A retro botanical field journal: upload a plant photo, get species and botanical classification, then a care guide that streams in while you wait.",
     built:
-      "Express on Node with a vanilla HTML/CSS/JS front. Image goes to Pl@ntNet for identification, then a care guide streams from an NVIDIA chat model over SSE. Hardened for public use: magic-byte file validation, httpOnly CSRF token cookie, Helmet, per-route rate limits, and a response whitelist so nothing from upstream leaks through unfiltered.",
+      "JavaScript / Express. JPEG or PNG upload for identification (species, classification, common names), then AI-driven care guide streaming. Built as a hardened public app: identification and streaming care guides on plant.ranjansharma.info.np. Topics: plant identification, streaming, Express, retro design.",
     tags: ["AI", "Vision", "Streaming"],
     year: "2026",
     url: "https://plant.ranjansharma.info.np/",
@@ -45,9 +45,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Rust Car Sim",
     tagline:
-      "A little car that drives itself around a track full of obstacles. Watch it plan a path, hit something, and try again.",
+      "A simple simulation of an AI-controlled car: pathfinding, decision-making, and obstacle avoidance in a small environment you can watch.",
     built:
-      "Rust with an egui front end. Grid pathfinding plus local obstacle avoidance on a simple decision loop; the car re-plans when its sensor cone sees a blocker. Compiles to WASM for the GitHub Pages demo and runs natively with cargo run.",
+      "Rust with an egui front end. Focus is basic autonomous-vehicle concepts: pathfinding, local decisions, and obstacle avoidance. Runs as a native sim and ships a GitHub Pages demo. Topics: autonomous vehicle, pathfinding, simulation, egui.",
     tags: ["Rust", "Simulation", "Pathfinding"],
     year: "2026",
     url: "https://konseptt.github.io/Rust-Autonomous-Vehicle-Simulation/",
@@ -59,9 +59,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "RetroSudoku",
     tagline:
-      "Sudoku that looks like it runs on a 1989 computer. Five difficulty levels, hints that explain their reasoning like a patient friend would, and it works offline.",
+      "Sudoku with retro computing aesthetics: multiple grid sizes and difficulties, a fast solver, human-style hints, and local high scores.",
     built:
-      "React 18 + TypeScript on Vite. Solver is Knuth's Dancing Links (DLX) exact cover, around 12 ms for a 9x9; generator uses it to guarantee unique solutions across 4x4 to 16x16 grids. A separate human-technique solver (singles, pairs, pointing, etc.) powers the hint system so hints teach instead of reveal. IndexedDB persistence, Web Audio for sound, PWA for offline.",
+      "TypeScript / React on Vite. Flexible grids (4x4 through 16x16), difficulties Easy through Evil, lightning-fast DLX solver, generator for unique puzzles, and a human-style hint system. Topics: DLX, solver, generator, puzzle-game. Live: sudoku.ranjansharma.info.np.",
     tags: ["React", "TypeScript", "Games"],
     year: "2025",
     url: "https://sudoku.ranjansharma.info.np/",
@@ -73,9 +73,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Synapse Research",
     tagline:
-      "Ask a medical question in plain English and get the research papers that answer it, ranked by how trustworthy the studies are, with a short summary. Fast enough to use mid-conversation.",
+      "Ask a health question in plain English. Synapse searches PubMed, returns an evidence-ranked overview in under a second, then optionally deepens with fuller AI synthesis or follow-up chat.",
     built:
-      "Next.js + TypeScript, PostgreSQL, optional Redis. Plain-English query is rewritten to PubMed syntax, hits NCBI E-utilities, then RER (Research Evidence Rank) scores each paper on study design, sample size, recency and rigor without a model call, under 1 ms per result set. ECS builds a cited overview from abstract lead sentences in ~5 ms. The slow LLM synthesis (NVIDIA Llama 3.1) is a separate tier, warmed in the background and cached. Repeat queries return in ~20 ms.",
+      "TypeScript. Biomedical research intelligence: PubMed search, instant evidence overviews, then optional fuller summary and paper Q&A. Fast path is ranking and extractive overview; slower LLM synthesis is a separate tier. Live: synapse-research.vercel.app.",
     tags: ["AI", "Backend", "PubMed"],
     year: "2026",
     url: "https://synapse-research.vercel.app",
@@ -87,9 +87,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Lab Escape",
     tagline:
-      "The famous psychology experiments, Stroop, Asch, Milgram and more, rebuilt as short escape rooms that actually measure how you did. Works in a classroom, a museum kiosk, or alone on your laptop.",
+      "Landmark psychology paradigms (Stroop, Simons & Chabris, Asch, Milgram, and more) rebuilt as measurable escape rooms with trial-level logging. Personal gym, classroom lab, or museum kiosk.",
     built:
-      "Next.js + TypeScript. Ten rooms across five wings; every trial is seeded so a sequence is reproducible, and reaction time, accuracy and seed are logged per trial, not just a final score. Offline-first with guest mode in localStorage; Prisma + PostgreSQL only when you want accounts, cohorts and CSV/JSON export. NextAuth for credentials and OAuth. No paid APIs anywhere.",
+      "TypeScript. Offline-first play loop with no database required; add Postgres when you need accounts, cohort export, and admin tooling. Measured rooms with trial-level logging, not just a final score. MIT licensed. Live: lab-escape-beta.vercel.app.",
     tags: ["Backend", "Research", "TypeScript"],
     year: "2026",
     url: "https://lab-escape-beta.vercel.app",
@@ -101,9 +101,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Hashpass",
     tagline:
-      "Type your one master password and a website name, get the same strong 16-character password every time. Nothing is saved anywhere, so there's nothing to leak.",
+      "A password calculator for daily use: enter a master password and a site name, get the same strong 16-character password every time for that pair.",
     built:
-      "TypeScript, runs fully client-side. Master secret + site name go through Argon2id via argon2-browser (WASM), output is normalized to a 16-char password with guaranteed character classes. No storage, no sync, no server; the same inputs on any machine produce the same result. A Rust CLI twin exists for the terminal.",
+      "TypeScript web app. Deterministic derivation from master password + site name (Argon2 family); nothing stored, nothing synced. Companion Rust CLI (Hashpass-Rust) for terminal use with Argon2 and clipboard output. Topics: argon2, cryptography, deterministic passwords. Live: hashpass.ranjansharma.info.np.",
     tags: ["Argon2", "Security", "Web"],
     year: "2026",
     url: "https://hashpass.ranjansharma.info.np/",
@@ -115,9 +115,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Page Fault Simulator",
     tagline:
-      "See how a computer decides which memory to throw out when it runs low. Step through it frame by frame and compare the classic strategies side by side.",
+      "Visual interactive simulator for page replacement: watch frames fill, faults happen, and algorithms compete on the same reference string.",
     built:
-      "Next.js + TypeScript. Implements FIFO, LRU, Optimal (Belady) and Second Chance / Clock over a user-defined reference string and 1-10 frames. Each step is animated and the run is charted against the other algorithms so you can see where Belady's anomaly bites.",
+      "TypeScript / Next.js. Interactive visualization of page replacement algorithms with step animation, comparative charts, and educational explanations. Topics: memory management, FIFO / LRU / Optimal / Clock-style strategies, operating systems. Live: page-fault-simulator.vercel.app.",
     tags: ["TypeScript", "OS", "Education"],
     year: "2026",
     url: "https://page-fault-simulator.vercel.app",
@@ -129,9 +129,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "CPU Scheduler",
     tagline:
-      "Type in a few processes, pick how the CPU should schedule them, and watch the Gantt chart draw itself with all the timing numbers underneath.",
+      "Add process inputs, pick a scheduling algorithm, and instantly see the Gantt chart plus waiting, turnaround, and related timing metrics.",
     built:
-      "Vanilla JavaScript, no build step. FCFS, non-preemptive SJF, Round Robin with quantum, and Priority in both preemptive and non-preemptive forms. Computes waiting, turnaround and response time per process plus averages; idle gaps show up in the chart when nothing is ready. Theme persists in localStorage.",
+      "Vanilla JavaScript. Interactive CPU scheduling simulator for OS practice: visual Gantt charts and timing metrics from process inputs. Topics: algorithms, FCFS / SJF / Round Robin / Priority-style scheduling, education. Live: cpu.ranjansharma.info.np.",
     tags: ["JavaScript", "OS", "Education"],
     year: "2026",
     url: "https://cpu.ranjansharma.info.np/",
@@ -143,9 +143,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "SyllabusCal",
     tagline:
-      "Drop in a course syllabus PDF and get every deadline as a calendar file you can import into Google Calendar. No more typing dates by hand in week one.",
+      "Turn a class syllabus PDF into a clean `.ics` calendar file you can import into Google Calendar, without typing every deadline by hand.",
     built:
-      "React 19 on Vite, Express 5 backend. PDF text is extracted in the browser with pdfjs-dist so only text leaves the client; the server sends it to NVIDIA NIM (Llama 4 Maverick) for structured event extraction and returns RFC 5545 .ics. Input is regex-screened for SSN/card patterns before any model call, rate limited, Helmet + CORS, and nothing is written to disk.",
+      "JavaScript: React / Vite front end, Express backend. Client-side PDF extract, LLM-assisted event structuring (NVIDIA), RFC 5545 `.ics` export. Topics: calendar, PDF, syllabus, LLM. Live: syllabuscal.ranjansharma.info.np.",
     tags: ["Backend", "PDF", "Parsing"],
     year: "2026",
     url: "https://syllabuscal.ranjansharma.info.np/",
@@ -157,12 +157,12 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "PrismClause",
     tagline:
-      "Paste a link to any Terms of Service or privacy policy and get the five scariest clauses explained in normal English, with a score for how much legalese you'd have had to wade through.",
+      "Paste a Terms of Service or privacy policy URL, PDF, or text and get the five most concerning clauses with severity, plain-English explanation, and impact.",
     built:
-      "Node + Express. Accepts URL, PDF or pasted text, exactly one at a time. URL path validates and blocks private/loopback targets (SSRF guard), PDF is parsed in memory, text is capped. NVIDIA model returns five flags with quote, clause type, severity and impact; output is normalized and schema-validated before it reaches the UI. A readability score is computed from the extracted text. Broad and strict analysis modes.",
+      "Node / Express policy scanner (tos-red-flag-scanner). One input at a time: URL, PDF, or paste. Returns five red flags with quote, clause type, severity, and human explanation; topics: legal-tech, risk analysis, AI. Live: tos-red-flag-scanner.vercel.app.",
     tags: ["AI", "LegalTech", "Parsing"],
     year: "2026",
-    url: "https://tos.ranjansharma.info.np/",
+    url: "https://tos-red-flag-scanner.vercel.app",
     accent: "#b7c2cc",
     thumb: "assets/thumbs/prismclause.png",
     thumbImgWidth: 1200,
@@ -171,12 +171,12 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Gap Sheet",
     tagline:
-      "Put a job posting next to your resume and it tells you what's missing, which words to strengthen, and what to fix first.",
+      "Compare a job posting to a résumé (pasted text or PDF) and get missing skills, keywords to strengthen, and prioritized fixes.",
     built:
-      "Flask on Python 3.12, deployed to Vercel. Resume arrives as text or PDF and is parsed in memory only. NVIDIA NIM (Llama 4 Maverick) returns structured JSON: missing skills, keywords to strengthen, prioritized fixes. CSRF-protected API, security headers including CSP, rate-limited routes, and a per-deployment derived secret so serverless instances agree on sessions.",
+      "Flask on Python, deployed to Vercel. Calls NVIDIA NIM (`meta/llama-4-maverick-17b-128e-instruct`) for structured JSON. Uploads processed in memory only; nothing written to disk for persistence. Topics: resume, job description, LLM, career. Live: gap-sheet.vercel.app.",
     tags: ["AI", "Career", "PDF"],
     year: "2026",
-    url: "https://resume.ranjansharma.info.np/",
+    url: "https://gap-sheet.vercel.app",
     accent: "#a8b4c0",
     thumb: "assets/thumbs/gap-sheet.png",
     thumbImgWidth: 1200,
@@ -185,9 +185,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "Interview Forecaster",
     tagline:
-      "Paste a job description and get the fifteen questions they'll probably ask, with a way to frame each answer and the red flags that lose people the offer.",
+      "Paste a job description and get the 15 most likely interview questions, with answer frameworks and red flags to avoid. Free, no sign-up, streaming responses.",
     built:
-      "Next.js + TypeScript. Job description goes to NVIDIA's API with a fixed output schema; standard and streaming generation modes, the latter over SSE so questions appear as they're produced. Request size and timeout guards on the upstream call, copy and export actions on the result. Free, no sign-up.",
+      "Next.js + TypeScript + NVIDIA API. Retro-styled interview prep: standard and streaming generation modes, answer frameworks, red-flag callouts. Topics: interview-prep, LLM, streaming, career. Live: interview.ranjansharma.info.np.",
     tags: ["AI", "Streaming", "Next.js"],
     year: "2026",
     url: "https://interview.ranjansharma.info.np/",
@@ -199,9 +199,9 @@ window.PORTFOLIO_PROJECTS = [
   {
     title: "The Faculty Ledger",
     tagline:
-      "Look up a professor before you register. See the rating, what students actually said, and compare up to three side by side. Paste a syllabus and it finds the instructor for you.",
+      "Independent desk for course research: look up professors, compare sections, and read Rate My Professors data before you register. Paste a syllabus to find the instructor.",
     built:
-      "Next.js App Router with React 19. Two API routes: professor-search wraps a Rate My Professors client and summarizes reviews into pros, cons and verbatim quotes; extract-professor pulls the instructor name out of pasted course text. Faculty photos fall back university page → Wikipedia → monogram. Favorites in localStorage, shareable ?name= & ?university= links. Not affiliated with RMP.",
+      "TypeScript. Search by name, paste syllabus text to extract the instructor, or run side-by-side comparison. Clean editorial layout over RMP data; not affiliated with Rate My Professors. Live: faculty.ranjansharma.info.np.",
     tags: ["TypeScript", "Education", "Web"],
     year: "2026",
     url: "https://faculty.ranjansharma.info.np/",
