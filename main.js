@@ -225,7 +225,10 @@
         : `<h3 class="project-title">${escapeHtml(p.title)}</h3>`;
 
       const builtHtml = built
-        ? `<p class="project-built">${escapeHtml(built)}</p>`
+        ? `<details class="project-built">
+        <summary class="mono">how it's built</summary>
+        <p>${escapeHtml(built)}</p>
+      </details>`
         : "";
 
       const demoHtml =

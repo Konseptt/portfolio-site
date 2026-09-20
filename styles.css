@@ -1163,12 +1163,43 @@ a.project-title:focus-visible {
   max-width: 60ch;
 }
 
+/* Two voices per project: tagline in plain speech, build notes behind a fold */
 .project-built {
   margin: 0.55rem 0 0;
   font-size: 0.78rem;
   line-height: 1.5;
   color: var(--muted);
   max-width: 58ch;
+}
+
+.project-built summary {
+  cursor: pointer;
+  width: fit-content;
+  list-style: none;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.project-built summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-built summary::before {
+  content: "+ ";
+}
+
+.project-built[open] summary::before {
+  content: "- ";
+}
+
+.project-built summary:hover,
+.project-row:hover .project-built summary {
+  color: var(--dim);
+}
+
+.project-built p {
+  margin: 0.45rem 0 0;
 }
 
 .project-year {
