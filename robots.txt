@@ -1,0 +1,8 @@
+# Ranjan Sharma / https://projects.ranjansharma.info.np/
+User-agent: *
+Allow: /
+
+# Machine-readable summary for LLM crawlers
+# https://projects.ranjansharma.info.np/llms.txt
+
+Sitemap: https://projects.ranjansharma.info.np/sitemap.xml

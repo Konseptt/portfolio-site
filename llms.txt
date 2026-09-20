@@ -1,0 +1,51 @@
+# Ranjan Sharma (Konsept)
+
+> Portfolio of Ranjan Sharma, an AI and backend developer. LLM-driven products with plain, honest APIs behind them, plus one compiler for fun. Everything listed here is deployed and usable.
+
+Canonical site for the person **Ranjan Sharma**, online handle **Konsept** / **thekonsept**.
+
+- Name: Ranjan Sharma
+- Handle: Konsept (thekonsept on LinkedIn, Konseptt on GitHub)
+- Role: AI and backend developer. Open to jobs and internships.
+- Email: hello@ranjansharma.info.np
+- Site: https://projects.ranjansharma.info.np/
+- LinkedIn: https://www.linkedin.com/in/thekonsept
+- GitHub: https://github.com/Konseptt
+- ORCID: https://orcid.org/0009-0007-3221-4096
+
+## Pages
+
+- [Home](https://projects.ranjansharma.info.np/): Portfolio landing page. Hero, project list, contact.
+- [Now](https://projects.ranjansharma.info.np/now/): One hand-written line about what he is doing at the moment.
+- [Sitemap](https://projects.ranjansharma.info.np/sitemap.xml)
+
+## How he works
+
+- AI in front, boring API behind. The model parses, ranks, or summarises; a plain backend does the fetching and never lets the model touch the database directly.
+- Ships to a real URL. Every project below is live.
+- Rust for the compiler and simulation work, TypeScript for most web backends.
+
+## Projects
+
+Hardest first, as on the site.
+
+- [LyangLang](https://crates.io/crates/lyanglyang): Nepali-keyword programming language in Rust. Tree-walking interpreter and bytecode VM on one AST. Published on crates.io as `lyanglyang`.
+- [Clinical Trial Matcher](https://clinicaltrial.ranjansharma.info.np/): Patient notes in, ranked clinical trial matches out, with an estimate of when eligibility may open. LLM parses the notes; a plain API searches the registries.
+- [Plant Field Journal](https://plant.ranjansharma.info.np/): Photo in, species guess and care notes out. Identification and guides stream in the browser.
+- [Rust Car Sim](https://konseptt.github.io/Rust-Autonomous-Vehicle-Simulation/): Autonomous vehicle simulation in Rust. Pathfinding, obstacle avoidance, egui front end.
+- [RetroSudoku](https://sudoku.ranjansharma.info.np/): Sudoku with a DLX solver, human-technique hints, themes, offline PWA.
+- [Synapse Research](https://synapse-research.vercel.app): Plain-English PubMed search with an evidence-ranked overview. Fetch, dedupe, and ranking on the server; the model only writes the summary it is handed.
+- [Lab Escape](https://lab-escape-beta.vercel.app): Classic psychology paradigms as timed rooms with trial-level logging. Offline-first; logs stay local until you opt in.
+- [Hashpass](https://hashpass.ranjansharma.info.np/): Deterministic passwords from a master secret and a site name via Argon2. Nothing stored, nothing synced.
+- [Page Fault Simulator](https://page-fault-simulator.vercel.app): Interactive page-replacement visualiser. Frames, faults, algorithm comparison.
+- [CPU Scheduler](https://cpu.ranjansharma.info.np/): Scheduling simulator with live Gantt charts and timing metrics for common OS algorithms.
+- [SyllabusCal](https://syllabuscal.ranjansharma.info.np/): Syllabus PDF in, calendar `.ics` out. Parsed in memory; no files kept on the server.
+- [PrismClause](https://tos.ranjansharma.info.np/): Scan a terms-of-service URL, PDF, or paste and surface the riskiest clauses in plain English.
+- [Gap Sheet](https://resume.ranjansharma.info.np/): Compare a job posting to a resume and list skill gaps plus wording fixes.
+- [Interview Forecaster](https://interview.ranjansharma.info.np/): From a job description: likely questions, answer frames, red flags. Optional streaming.
+- [The Faculty Ledger](https://faculty.ranjansharma.info.np/): Look up professors, compare sections, read ratings before registering.
+
+## Contact
+
+- Email: hello@ranjansharma.info.np
+- Hiring for AI + backend? Mail is the fastest route. Human replies.
