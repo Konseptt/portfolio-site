@@ -29,6 +29,17 @@ window.PORTFOLIO_PROJECTS = [
     thumbImgHeight: 750,
   },
   {
+    title: "SNAP",
+    tagline:
+      "A Rubik's cube on your desk. Scramble it, say solve, and watch the faces turn. Code finds legal plans; Jev picks which one to play.",
+    built:
+      "Next.js 16, React 19, Three.js. Singmaster turns, Kociemba two-phase via cubejs, plus undo-scramble when the scramble is known. TypeSafe Jev only chooses among those verified candidates (plan, pace, hardness). It never searches the cube graph. Solve and coach stream over SSE. The API key stays on the server. Without a key, SNAP plays the shortest verified plan. Live: jev.ranjansharma.info.np.",
+    tags: ["AI", "Three.js", "TypeScript"],
+    year: "2026",
+    url: "https://jev.ranjansharma.info.np/",
+    accent: "#b7c2cc",
+  },
+  {
     title: "Plant Field Journal",
     tagline:
       "A retro botanical field journal: upload a plant photo, get species and botanical classification, then a care guide that streams in while you wait.",

@@ -31,6 +31,7 @@ Hardest first, as on the site.
 
 - [LyangLang](https://crates.io/crates/lyanglyang): Nepali-keyword programming language in Rust. Tree-walking interpreter and bytecode VM on one AST. Published on crates.io as `lyanglyang`.
 - [Clinical Trial Matcher](https://clinicaltrial.world/): Patient notes in, ranked clinical trial matches out, with an estimate of when eligibility may open. LLM parses the notes; a plain API searches the registries.
+- [SNAP](https://jev.ranjansharma.info.np/): Desk Rubik's cube. A solver finds legal plans; Jev picks which one to play.
 - [Plant Field Journal](https://plant.ranjansharma.info.np/): Photo in, species guess and care notes out. Identification and guides stream in the browser.
 - [Rust Car Sim](https://konseptt.github.io/Rust-Autonomous-Vehicle-Simulation/): Autonomous vehicle simulation in Rust. Pathfinding, obstacle avoidance, egui front end.
 - [RetroSudoku](https://sudoku.ranjansharma.info.np/): Sudoku with a DLX solver, human-technique hints, themes, offline PWA.
