@@ -19,10 +19,10 @@ window.PORTFOLIO_PROJECTS = [
     tagline:
       "Search international clinical trial registries from patient notes or clinician chart notes. Unlike most matchers, it also forecasts when you could become eligible, not only what fits today.",
     built:
-      "TypeScript. Supports patient narrative input and clinician chart notes, ranked across multiple public registries. Eligibility Forecast is the unique path: washout windows and blockers from registry text against the patient's timeline, with projected dates. Production hardening and deterministic fallbacks for patient summary and eligibility panel. Live: clinicaltrial.ranjansharma.info.np.",
+      "TypeScript. Supports patient narrative input and clinician chart notes, ranked across multiple public registries. Eligibility Forecast is the unique path: washout windows and blockers from registry text against the patient's timeline, with projected dates. Production hardening and deterministic fallbacks for patient summary and eligibility panel. Live: clinicaltrial.world.",
     tags: ["AI", "Backend", "TypeScript"],
     year: "2026",
-    url: "https://clinicaltrial.ranjansharma.info.np/",
+    url: "https://clinicaltrial.world/",
     accent: "#a8b4c0",
     thumb: "assets/thumbs/clinical-trial.png",
     thumbImgWidth: 1200,
