@@ -66,6 +66,9 @@ window.PORTFOLIO_PROJECTS = [
     year: "2026",
     url: "https://jev.ranjansharma.info.np/",
     accent: "#b7c2cc",
+    thumb: "assets/thumbs/snap.png",
+    thumbImgWidth: 1200,
+    thumbImgHeight: 750,
   },
   {
     title: "RetroSudoku",
